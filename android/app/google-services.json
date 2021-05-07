@@ -1,0 +1,127 @@
+{
+  "project_info": {
+    "project_number": "614612792888",
+    "firebase_url": "https://carbon-modem-303215-default-rtdb.firebaseio.com",
+    "project_id": "carbon-modem-303215",
+    "storage_bucket": "carbon-modem-303215.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:614612792888:android:72353479cc495cc0ddd8cd",
+        "android_client_info": {
+          "package_name": "com.eleven.food_course"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "614612792888-v08fot3qb1tm8j1rj3h6h10f4s61tkl1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCRmIqs1KOovPpu1q8WtlJWPx3qCIJJuIA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "614612792888-v08fot3qb1tm8j1rj3h6h10f4s61tkl1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "614612792888-7b2hrb7ga4sfbu9jd5kntrhd8sun7gio.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.friendlyeats"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:614612792888:android:560038d863a6b789ddd8cd",
+        "android_client_info": {
+          "package_name": "com.example.app_food"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "614612792888-m9kl59jef5g1ko6i63krqkkah49df1t3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.app_food",
+            "certificate_hash": "168fe0bf3ebb76fa9016f6eefe0678949bf189db"
+          }
+        },
+        {
+          "client_id": "614612792888-v08fot3qb1tm8j1rj3h6h10f4s61tkl1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCRmIqs1KOovPpu1q8WtlJWPx3qCIJJuIA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "614612792888-v08fot3qb1tm8j1rj3h6h10f4s61tkl1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "614612792888-7b2hrb7ga4sfbu9jd5kntrhd8sun7gio.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.friendlyeats"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:614612792888:android:d809fbfb81423e45ddd8cd",
+        "android_client_info": {
+          "package_name": "com.example.friendlyeats"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "614612792888-v08fot3qb1tm8j1rj3h6h10f4s61tkl1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCRmIqs1KOovPpu1q8WtlJWPx3qCIJJuIA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "614612792888-v08fot3qb1tm8j1rj3h6h10f4s61tkl1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "614612792888-7b2hrb7ga4sfbu9jd5kntrhd8sun7gio.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.friendlyeats"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
