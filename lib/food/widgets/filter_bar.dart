@@ -30,11 +30,11 @@ class FilterBar extends StatelessWidget {
 
   List<InlineSpan> _buildCategorySpans(Filter filter) {
     final noneSelected =
-        filter == null || filter.isDefault || filter.formatted_address== null;
+        filter == null || filter.isDefault || filter.ville== null;
     return [
       if (noneSelected) TextSpan(text: 'Tout les restaurants ', style: _boldStyle),
       if (!noneSelected) ...[
-        TextSpan(text: '${filter.formatted_address}', style: _boldStyle),
+        TextSpan(text: '${filter.ville}', style: _boldStyle),
         TextSpan(text: ' name'),
       ],
     ];
@@ -52,9 +52,9 @@ class FilterBar extends StatelessWidget {
 
   List<InlineSpan> _buildPriceSpans(Filter filter) {
     return [
-      if (filter.formatted_address!= null) ...[
+      if (filter.ville!= null) ...[
         TextSpan(text: ' of '),
-        TextSpan(text: filter.formatted_address, style: _boldStyle),
+        TextSpan(text: filter.ville, style: _boldStyle),
       ],
     ];
   }
@@ -68,19 +68,19 @@ class FilterBar extends StatelessWidget {
 
   List<InlineSpan> _buildCitySpans(Filter filter) {
     return [
-      if (filter.formatted_address != null) ...[
+      if (filter.ville != null) ...[
         TextSpan(text: 'in '),
-        TextSpan(text: '${filter.formatted_address} ', style: _boldStyle),
+        TextSpan(text: '${filter.ville} ', style: _boldStyle),
       ],
     ];
   }
 
   List<InlineSpan> _buildSubtitleSpans(Filter filter) {
     final orderedByRating =
-        filter == null || filter.categorie == null || filter.categorie == 'categorie';
+        filter == null || filter.type == null || filter.type == 'type';
     return [
       if (filter != null) ..._buildCitySpans(filter),
-      if (orderedByRating) TextSpan(text: 'by categorie'),
+      if (orderedByRating) TextSpan(text: 'by type'),
       if (!orderedByRating) TextSpan(text: 'by # reviews'),
     ];
   }
@@ -99,7 +99,7 @@ class FilterBar extends StatelessWidget {
       padding: EdgeInsets.all(6),
         child: Row(
         children: [
-          Icon(Icons.filter_list),
+          Icon(Icons.filter_list,color: Colors.green),
           Expanded(
             child: Padding(
               padding: EdgeInsets.fromLTRB(6, 0, 6, 0),

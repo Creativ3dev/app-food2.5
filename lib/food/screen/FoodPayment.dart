@@ -11,6 +11,8 @@ import 'package:app_food/main/utils/AppWidget.dart';
 
 import 'FoodDeliveryInfo.dart';
 
+//non utilisé
+
 class FoodPayment extends StatefulWidget {
   static String tag = '/FoodPayment';
 

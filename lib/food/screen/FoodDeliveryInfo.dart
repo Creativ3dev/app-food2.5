@@ -10,6 +10,8 @@ import 'package:app_food/food/utils/FoodImages.dart';
 import 'package:app_food/food/utils/FoodString.dart';
 import 'package:app_food/main/utils/flutter_rating_bar.dart';
 
+//non utilisé
+
 class FoodDeliveryInfo extends StatefulWidget {
   static String tag = '/FoodDeliveryInfo';
 

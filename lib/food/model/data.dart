@@ -8,15 +8,15 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 Future<void> addresto(Resto resto) {
   final restos = FirebaseFirestore.instance.collection('resto');
   return restos.add({
-    'rating': resto.rating,
-   'categorie': resto.categorie,
+    /*'rating': resto.rating,*/
+   'type': resto.type,
     'formatted_address': resto.formatted_address,
     'name': resto.name,
     'user_ratings_totals': resto.user_ratings_totals,
    /* 'photo_reference': resto.photo,*/
     /*'compound_code': resto.compound_code,*/
     'place_id': resto.place_id,
-    'coumpound' : resto.coumpound
+    'ville' : resto.ville
 
 
 
@@ -26,8 +26,8 @@ Future<void> addresto(Resto resto) {
 Stream<QuerySnapshot> loadAllrestos() {
   return FirebaseFirestore.instance
       .collection('resto')
-      .orderBy('categorie', descending: true)
-      .limit(50)
+      .orderBy('type', descending: true)
+      .limit(800)
       .snapshots();
 }
 
@@ -77,18 +77,18 @@ Future<void> addReview({String restoId, Review review}) {
 
 Stream<QuerySnapshot> loadFilteredrestos(Filter filter) {
   Query collection = FirebaseFirestore.instance.collection('resto');
-  if (filter.formatted_address != null) {
-    collection = collection.where('formatted_address', isEqualTo: filter.formatted_address);
+  if (filter.ville != null) {
+    collection = collection.where('ville', isEqualTo: filter.ville);
   }
- if (filter.categorie != null) {
-    collection = collection.where('categorie', isEqualTo: filter.categorie);
+ if (filter.type != null) {
+    collection = collection.where('type', isEqualTo: filter.type);
   }
   if (filter.coumpound!= null) {
     collection = collection.where('coumpound', isEqualTo: filter.coumpound);
   }
   return collection
       .orderBy(filter.rating ?? 'rating', descending: true)
-      .limit(50)
+      .limit(800)
       .snapshots();
 }
 

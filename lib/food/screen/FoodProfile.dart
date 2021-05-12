@@ -8,6 +8,8 @@ import 'package:app_food/food/utils/FoodString.dart';
 import 'package:app_food/food/utils/FoodWidget.dart';
 import 'package:app_food/main/utils/AppWidget.dart';
 
+
+// non utiliser 
 class FoodProfile extends StatefulWidget {
   static String tag = '/FoodProfile';
 

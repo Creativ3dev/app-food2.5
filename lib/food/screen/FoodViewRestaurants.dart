@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:app_food/food/model/data.dart'as data;
 import 'package:app_food/food/model/resto.dart';
+import 'package:app_food/food/services/searchservice.dart';
 import 'package:app_food/food/utils/FoodColors.dart';
 import 'package:app_food/food/utils/FoodImages.dart';
 import 'package:app_food/food/utils/FoodString.dart';
@@ -42,7 +43,8 @@ class RestoPage extends StatefulWidget {
 }
 
 class _RestoPageState extends State<RestoPage> {
-
+  var queryResultSet = [];
+  var tempSearchStore = [];
   Widget iconWithTitle(var icon, var value) {
     return RichText(
       text: TextSpan(
@@ -150,12 +152,8 @@ class _RestoPageState extends State<RestoPage> {
         : Scaffold(
       body: Builder(
         builder: (context) => SliverFab(
-          floatingWidget: FloatingActionButton(
-            tooltip: 'Add a review',
-            backgroundColor: Colors.amber,
-            child: Icon(Icons.add),
-           /* onPressed: () => _onCreateReviewPressed(context),*/
-          ),
+
+          floatingWidget: Icon(Icons.add),
           floatingPosition: FloatingPosition(right: 16),
           expandedHeight: RestoAppBar.appBarHeight,
           slivers: <Widget>[
@@ -175,7 +173,7 @@ class _RestoPageState extends State<RestoPage> {
                         color: Colors.blue[100 * (index % 9 + 1)],
                         height: 80,
                         alignment: Alignment.center,
-                        child: Text(_resto.coumpound,
+                        child: Text(_resto.ville,
                           style: TextStyle(fontSize: 30),
                         ),
                       ),
@@ -204,7 +202,7 @@ class _RestoPageState extends State<RestoPage> {
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text(_resto.categorie, style: primaryTextStyle(color: food_color_red)),
+                      Text(_resto.type, style: primaryTextStyle(color: food_color_red)),
                         Row(
 
                         children:[
@@ -223,7 +221,7 @@ class _RestoPageState extends State<RestoPage> {
                         ),
                       Row(
                         children: <Widget>[
-                          Text(_resto.coumpound, style: primaryTextStyle(color: food_textColorSecondary)),
+                          Text(_resto.ville, style: primaryTextStyle(color: food_textColorSecondary)),
 
                           Container(
                             decoration: BoxDecoration(shape: BoxShape.circle, color: food_textColorSecondary),

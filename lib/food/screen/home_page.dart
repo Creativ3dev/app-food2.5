@@ -2,21 +2,23 @@ import 'dart:async';
 import 'dart:math';
 import 'package:app_food/food/model/filter.dart';
 import 'package:app_food/food/model/resto.dart';
+import 'package:app_food/food/utils/FoodColors.dart';
 import 'package:app_food/food/widgets/dialogs/filter_select.dart';
 import 'package:app_food/food/widgets/empty_list.dart';
 import 'package:app_food/food/widgets/filter_bar.dart';
 import 'package:app_food/food/widgets/grid.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flappy_search_bar/flappy_search_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:app_food/food/model/data.dart'as data;
 import 'package:flutter/material.dart';
 import 'FoodViewRestaurants.dart';
-
+//lsite des restos
 
 class HomePage extends StatefulWidget {
   static const route = '/';
-
+  SearchBar searchBar;
   HomePage({Key key}) : super(key: key);
 
   @override
@@ -24,6 +26,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
   _HomePageState() {
     FirebaseAuth.instance
         .signInAnonymously()
@@ -81,41 +84,49 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Container(
+      child: Scaffold(
 
-      appBar: AppBar(
-        backgroundColor: Colors.white10,
-        leading: Icon(Icons.restaurant),
-        title: Text('Listo resto',),
-        bottom: PreferredSize(
-          preferredSize: Size(320, 48),
-          child: Padding(
-            padding: EdgeInsets.fromLTRB(6, 0, 6, 4),
-            child: FilterBar(
-              filter: _filter,
-              onPressed: _onFilterBarPressed,
+        appBar: AppBar(
+          backgroundColor: food_white,
+          leading: Icon(Icons.restaurant),
+          title: Text('Entrez votre recherche',style: TextStyle(color: Color(0xff238c00))),
+
+          bottom: PreferredSize(
+            preferredSize: Size(420, 48),
+            child: Padding(
+              padding: EdgeInsets.fromLTRB(1, 6, 6, 4),
+              child: FilterBar(
+                filter: _filter,
+                onPressed: _onFilterBarPressed,
+              ),
+
             ),
           ),
+
         ),
-      ),
-      body: SafeArea (
-        child: Container(
-          constraints: BoxConstraints(maxWidth: 1280),
-          child: _isLoading
-              ? CircularProgressIndicator()
-              : _restos.isNotEmpty
-              ? RestoGrid(
-              restos: _restos,
-              onRestoPressed: (restoId) {
-                // TODO: Add deep links on web
-                Navigator.pushNamed(context, RestoPage.route,
-                    arguments: RestoPageArguments(restoId: restoId));
-              })
-           : EmptyListView(
-            child: Text('Listo Resto has no restaurants yet!'),
-            onPressed: _onAddRandomRestoPressed,
-          ),
-        )
+        body: SafeArea (
+
+          child: Container(
+
+
+            constraints: BoxConstraints(maxWidth: 1280),
+            child: _isLoading
+                ? CircularProgressIndicator()
+                : _restos.isNotEmpty
+                ? RestoGrid(
+                restos: _restos,
+                onRestoPressed: (restoId) {
+                  // TODO: Add deep links on web
+                  Navigator.pushNamed(context, RestoPage.route,
+                      arguments: RestoPageArguments(restoId: restoId));
+                })
+             : EmptyListView(
+              child: Text('Listo Resto has no restaurants yet!'),
+              onPressed: _onAddRandomRestoPressed,
+            ),
+          )
+        ),
       ),
     );
   }

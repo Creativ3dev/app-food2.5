@@ -15,6 +15,7 @@ import 'package:app_food/main/utils/AppWidget.dart';
 import 'package:provider/provider.dart';
 import 'FoodDashboard.dart';
 
+// page creation de  compte
 class FoodCreateAccount extends StatefulWidget {
   static String tag = '/FoodCreateAccount';
 

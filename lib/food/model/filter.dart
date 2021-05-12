@@ -1,8 +1,8 @@
 typedef FilterChangedCallback<T> = void Function(T newValue);
 
 class Filter {
-  final String formatted_address;
-  final String categorie;
+  final String ville;
+  final String type;
  /* final String compound_code;*/
   final String name;
   final String rating;
@@ -10,8 +10,8 @@ class Filter {
 
 
   bool get isDefault {
-    return (formatted_address== null && categorie == null && /* compound_code == null && */name== null &&rating ==null && coumpound== null);
+    return (ville== null && type == null && /* compound_code == null && */name== null &&rating ==null && coumpound== null);
   }
 
-  Filter({this.formatted_address, this.categorie, /*this.compound_code, */this.name, this.rating, this.coumpound});
+  Filter({this.ville, this.type, /*this.compound_code, */this.name, this.rating, this.coumpound});
 }

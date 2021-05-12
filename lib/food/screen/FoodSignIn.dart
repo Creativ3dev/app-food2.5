@@ -14,6 +14,7 @@ import 'package:app_food/food/utils/FoodString.dart';
 import 'package:app_food/main/utils/AppWidget.dart';
 import 'package:app_food/food/services/loginservice.dart';
 import 'package:provider/provider.dart';
+import 'package:app_food/food/services/auth_service.dart';
 
 import 'FoodCreateAccount.dart';
 import 'authentification.dart';
@@ -35,6 +36,7 @@ class FoodSignInState extends State<FoodSignIn> {
   Future<void> signInWithGoogle() async {
     await Authentification().signInWithGoogle();
   }
+  AuthClass authClass = AuthClass();
   @override
   Widget build(BuildContext context) {
 
@@ -223,9 +225,15 @@ class FoodSignInState extends State<FoodSignIn> {
                                   '  Sign up with Google',
                                   style: TextStyle(fontSize: 20),
                                 ),
-                                  onPressed: () {
-                                 signInWithGoogle();
+                                  onPressed: () async{
+                                  /*
+                                 signInWithGoogle();*
+
+                                   */
+                                    await authClass.googleSignIn(context);
+
                                 },
+
                                 style: ButtonStyle(
                                   backgroundColor: MaterialStateProperty.all<Color>(Colors.red),
                                   shape: MaterialStateProperty.all<RoundedRectangleBorder>(

@@ -1,6 +1,7 @@
 import 'package:app_food/food/model/FoodModel.dart';
 import 'package:app_food/food/screen/FoodDashboard.dart';
 import 'package:app_food/food/screen/FoodSignIn.dart';
+import 'package:app_food/food/screen/FoodWalkThrough.dart';
 import 'package:app_food/main.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -13,6 +14,6 @@ class WidgetTree extends StatelessWidget {
     if (user == null) {
       return FoodSignIn();
     }
-    return FoodDashboard();
+    return FoodWalkThrough();
   }
 }

@@ -16,7 +16,7 @@ import 'FoodBookDetail.dart';
 import 'FoodDescription.dart';
 import 'FoodGallery.dart';
 import 'FoodReview.dart';
-
+//page non utilise
 class FoodRestaurantsDescription extends StatefulWidget {
   static String tag = '/FoodRestaurantsDescription';
 
@@ -301,7 +301,7 @@ class FoodRestaurantsDescriptionState extends State<FoodRestaurantsDescription> 
                               semanticLabel: 'text',
                             ),
                           ),
-                          Text('verifié'),
+                          Text('verifiés'),
                         ],
                       ),
                       Row(

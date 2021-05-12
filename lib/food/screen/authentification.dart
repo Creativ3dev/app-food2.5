@@ -1,9 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
+//authentification avec google
 class Authentification {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
+//methode de connexion
   Future<void> signInWithGoogle() async {
     final googleSignIn = GoogleSignIn();
     final googleUser = await googleSignIn.signIn();
@@ -14,6 +16,7 @@ class Authentification {
           GoogleAuthProvider.credential(
               idToken: googleAuth.idToken, accessToken: googleAuth.accessToken),
         );
+
         return userCredential.user;
       }
     } else {
@@ -24,6 +27,7 @@ class Authentification {
     }
   }
 
+//methode de deconnexion
   Future<void> signOut() async {
     final googleSignIn = GoogleSignIn();
     await googleSignIn.signOut();

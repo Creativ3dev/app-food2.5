@@ -22,7 +22,7 @@ import 'FoodSignIn.dart';
 import 'FoodViewRestaurants.dart';
 import 'authentification.dart';
 
-
+//page d'acceuil
 class FoodDashboard extends StatefulWidget {
   static String tag = '/FoodDashboard';
 
@@ -32,7 +32,7 @@ class FoodDashboard extends StatefulWidget {
 
 class FoodDashboardState extends State<FoodDashboard> {
   GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
-
+// donnee statique
   List<DashboardCollections> mCollectionList;
 
   List<Restaurants> mBakeryList;
@@ -118,36 +118,40 @@ class FoodDashboardState extends State<FoodDashboard> {
                       ),
                       child: Column(
                         children: <Widget>[
-                          SizedBox(height: 566),
+                          SizedBox(height: 366),
                           mAddress(context),
                           SizedBox(height: 16),
                           search(context),
                           SizedBox(height: 16),
-                          Row(
-                            children: <Widget>[
-                              Expanded(
-                                child: topGradient(
-                                  food_color_blue_gradient1,
-                                  food_color_blue_gradient2,
-                                  food_cloche,
-                                  food_lbl_food_order,
-                                  food_lbl_find_near_by_restaurants,
+                          SizedBox(
+                              width: 300,
+                              child:ElevatedButton.icon(
+                                icon: Icon(
+                                    Icons.arrow_forward_ios_outlined,
+                                    size:20),
+                                label: Text(
+                                  '  restaurant',
+                                  style: TextStyle(fontSize: 20),
                                 ),
-                                flex: 1,
-                              ),
-                              SizedBox(width: 10),
-                              Expanded(
-                                child: topGradient(
-                                  food_color_orange_gradient1,
-                                  food_color_orange_gradient2,
-                                  food_ic_table,
-                                  food_lbl_book_a_table,
-                                  food_lbl_may_take_upto_3_mins,
+                                onPressed: () {
+                                  Navigator.of(context).pushReplacement(
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              HomePage()));     },
+                                style: ButtonStyle(
+                                  backgroundColor: MaterialStateProperty.all<Color>(Colors.lightBlueAccent),
+                                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                                    RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(18.0),
+
+                                    ),
+                                  ),
                                 ),
-                                flex: 1,
                               )
-                            ],
                           ),
+
+                          SizedBox(height: 300),
+
                         ],
                       ),
                     ),

@@ -8,7 +8,7 @@ import 'package:responsive_grid/responsive_grid.dart';
 import 'card.dart';
 
 const double _minSpacingPx = 16;
-const double _cardWidth = 360;
+const double _cardWidth = 350;
 
 class RestoGrid extends StatelessWidget {
   RestoGrid({

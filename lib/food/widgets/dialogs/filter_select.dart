@@ -33,8 +33,8 @@ class FilterSelectDialog extends StatefulWidget {
 class _FilterSelectDialogState extends State<FilterSelectDialog> {
   _FilterSelectDialogState({Filter filter}) {
     if (filter != null && !filter.isDefault) {
-     _categorie = filter.categorie;
-      _formatted_address = filter.formatted_address;
+     _type = filter.type;
+      _ville = filter.ville;
      /* _compound_code = filter.compound_code*/
       _name = filter.name;
      coumpound = filter.coumpound;
@@ -42,8 +42,8 @@ class _FilterSelectDialogState extends State<FilterSelectDialog> {
     }
   }
 
-  String _categorie;
-  String _formatted_address;
+  String _type;
+  String _ville;
   String coumpound;
   String _compound_code;
   String _name;
@@ -92,8 +92,8 @@ class _FilterSelectDialogState extends State<FilterSelectDialog> {
     FilterChangedCallback<String> onChanged,
   }) {
     return _buildDropdownRow<String>(
-      labels: ['Any Cuisine', ...hardcoded.categorie],
-      values: [null, ...hardcoded.categorie],
+      labels: ['Any Cuisine', ...hardcoded.type],
+      values: [null, ...hardcoded.type],
       selected: selected,
       icon: Icons.fastfood,
       onChanged: onChanged,
@@ -105,8 +105,8 @@ class _FilterSelectDialogState extends State<FilterSelectDialog> {
     FilterChangedCallback<String> onChanged,
   }) {
     return _buildDropdownRow<String>(
-      labels: ['Any Location', ...hardcoded.formatted_address],
-      values: [null, ...hardcoded.formatted_address],
+      labels: ['Any Location', ...hardcoded.ville],
+      values: [null, ...hardcoded. ville],
       selected: selected,
       icon: Icons.location_on,
       onChanged: onChanged,
@@ -120,8 +120,8 @@ class _FilterSelectDialogState extends State<FilterSelectDialog> {
     FilterChangedCallback<String> onChanged,
   }) {
     return _buildDropdownRow<String>(
-      labels: ['Rating', 'Reviews'],
-      values: ['avgRating', 'numRatings'],
+      labels: ['rating', 'type'],
+      values: ['rating', 'type'],
       selected: selected,
       icon: Icons.sort,
       onChanged: onChanged,
@@ -133,8 +133,8 @@ class _FilterSelectDialogState extends State<FilterSelectDialog> {
     FilterChangedCallback<String> onChanged,
   }) {
     return _buildDropdownRow<String>(
-      labels: ['Rating', 'Reviews'],
-      values: ['avgRating', 'numRatings'],
+      labels: ['rating', 'type'],
+      values: ['rating', 'type'],
       selected: selected,
       icon: Icons.sort,
       onChanged: onChanged,
@@ -144,10 +144,11 @@ class _FilterSelectDialogState extends State<FilterSelectDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
+
       title: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Icon(Icons.filter_list),
+          Icon(Icons.filter_list,color: Colors.green,),
           Padding(
             padding: EdgeInsets.fromLTRB(16, 0, 8, 0),
             child: Text('Filter'),
@@ -161,24 +162,24 @@ class _FilterSelectDialogState extends State<FilterSelectDialog> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             _buildCategoryDropdown(
-                selected: _categorie,
+                selected: _type,
                 onChanged: (String value) {
                   setState(() {
-                    _categorie = value;
+                    _type = value;
                   });
                 }),
             _buildCityDropdown(
-                selected: _formatted_address,
+                selected: _ville,
                 onChanged: (String value) {
                   setState(() {
-                    _formatted_address = value;
+                    _ville = value;
                   });
                 }),
             _buildCodeDropdown(
-                selected: coumpound,
+                selected: _type,
                 onChanged: (String value) {
                   setState(() {
-                    coumpound = value;
+                    _type= value;
                   });
                 }),
 
@@ -202,8 +203,8 @@ class _FilterSelectDialogState extends State<FilterSelectDialog> {
           onPressed: () => Navigator.pop(
               context,
               Filter(
-                categorie: _categorie,
-                formatted_address: _formatted_address,
+                type: _type,
+                ville: _ville,
                 coumpound: coumpound,
               )),
         ),

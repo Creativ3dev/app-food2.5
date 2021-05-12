@@ -95,7 +95,8 @@ class RestoAppBar extends StatelessWidget {
       return SliverAppBar(
         leading: IconButton(
           onPressed: _onPressed,
-          icon: Icon(Icons.close),
+          icon: Icon(Icons.close,
+            color: Colors.yellow,),
           iconSize: 32,
         ),
         expandedHeight: appBarHeight,
@@ -149,12 +150,12 @@ class RestoAppBar extends StatelessWidget {
               ),
               Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(0),
                   gradient: LinearGradient(
 
                     colors: [
-                      const Color(0x00000000),
-                      const Color(0xAA000000),
+                      const Color(0xFFFFFF),
+                      const Color(0xFFFFFF),
                     ],
                   ),
                 ),

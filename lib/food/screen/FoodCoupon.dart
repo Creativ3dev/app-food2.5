@@ -10,6 +10,7 @@ import 'package:app_food/food/utils/FoodWidget.dart';
 import 'package:app_food/food/utils/dotted_border.dart';
 import 'package:app_food/main/utils/AppWidget.dart';
 
+//non utiliser
 class FoodCoupon extends StatefulWidget {
   static String tag = '/FoodCoupon';
 

@@ -11,7 +11,9 @@ import 'package:app_food/main/utils/AppWidget.dart';
 import 'package:app_food/main/utils/dots_indicator/dots_indicator.dart';
 
 import 'FoodSignIn.dart';
+import 'authentification.dart';
 
+//page juste apres le SplashScreen elle presente l'application
 class FoodWalkThrough extends StatefulWidget {
   static String tag = '/FoodWalkThrough';
 
@@ -37,7 +39,9 @@ class FoodWalkThroughState extends State<FoodWalkThrough> {
     pageLength = 3;
     super.initState();
   }
-
+  Future<void> signOut() async {
+    await Authentification().signOut();
+  }
   @override
   Widget build(BuildContext context) {
     changeStatusColor(food_colorPrimary_light);

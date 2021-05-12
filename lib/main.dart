@@ -3,6 +3,7 @@ import 'dart:async';
 
 import 'package:app_food/food/model/resto.dart';
 import 'package:app_food/food/screen/FoodReview.dart';
+import 'package:app_food/food/screen/FoodSignIn.dart';
 import 'package:app_food/main/store/AppStore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -32,7 +33,6 @@ class MyApp  extends StatelessWidget {
       ],
       child: MaterialApp(
       title: 'listo resto',
-        home: WidgetTree(),
       theme: !appStore.isDarkModeOn ? AppThemeData.lightTheme : AppThemeData.darkTheme,
       onGenerateRoute: (settings) {
         switch (settings.name) {
@@ -62,9 +62,7 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  Future<void> signOut() async {
-    await Authentification().signOut();
-  }
+
   @override
   void initState() {
     // TODO: implement initState

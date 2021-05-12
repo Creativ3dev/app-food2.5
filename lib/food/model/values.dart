@@ -2,11 +2,13 @@ import 'dart:core';
 import 'dart:core';
 import 'dart:math';
 
-final formatted_address = [
-  'Albuquerque',
+final ville = [
+  'La Trinité, Martinique',
+  'Arrondissement of Saint-Pierre, Martinique',
+  'Basse Pointe, Martinique',
 
 ];
-final categorie = [
+final type = [
 
 
 ];
@@ -86,13 +88,13 @@ String getRandomName() {
 }
 
 String getRandomType() {
-  return categorie[random.nextInt(categorie.length)];
+  return type[random.nextInt(type.length)];
 }
 
 
 
 String getRandomAddress() {
-  return formatted_address[random.nextInt(formatted_address.length)];
+  return ville[random.nextInt(ville.length)];
 }
 
 String getRandomPhoto() {
