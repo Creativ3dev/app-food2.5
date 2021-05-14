@@ -18,6 +18,7 @@ class Authentification {
         );
 
         return userCredential.user;
+
       }
     } else {
       throw FirebaseAuthException(

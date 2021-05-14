@@ -32,7 +32,7 @@ class RestoCard extends StatelessWidget {
             splashColor: Colors.red.withAlpha(30),
             child: Container(
 
-              height: 360,
+              height: 320,
               child: Column(
                 children: <Widget>[
                   // TODO: Make this a Hero widget so we can transition to it?

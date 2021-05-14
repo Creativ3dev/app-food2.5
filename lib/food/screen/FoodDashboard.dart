@@ -162,6 +162,7 @@ class FoodDashboardState extends State<FoodDashboard> {
           ],
         ),
       ),
+
       drawer: FoodSideMenu(),
     );
   }

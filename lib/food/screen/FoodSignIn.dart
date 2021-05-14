@@ -231,6 +231,7 @@ class FoodSignInState extends State<FoodSignIn> {
 
                                    */
                                     await authClass.googleSignIn(context);
+                                    toast('Back button');
 
                                 },
 
@@ -307,7 +308,9 @@ class FoodSignInState extends State<FoodSignIn> {
                                   Navigator.of(context).pushReplacement(
                                       MaterialPageRoute(
                                           builder: (context) =>
-                                              HomePage()));     },
+                                              HomePage()));
+
+                                  },
                                 style: ButtonStyle(
                                   backgroundColor: MaterialStateProperty.all<Color>(Colors.green),
                                   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
