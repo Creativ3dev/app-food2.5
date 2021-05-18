@@ -77,6 +77,9 @@ dependencies:
   flutter_native_splash: ^1.1.8+4
   flutter_search_bar: ^2.1.0
   anim_search_bar: ^2.0.1
+  uuid: ^3.0.4
+  dio: ^4.0.0
+
 
 
 dev_dependencies:

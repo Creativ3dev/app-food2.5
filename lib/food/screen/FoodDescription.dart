@@ -11,8 +11,6 @@ import 'package:app_food/food/utils/FoodString.dart';
 import 'package:app_food/food/utils/FoodWidget.dart';
 import 'package:app_food/main/utils/AppWidget.dart';
 
-import 'FoodBookCart.dart';
-
 class FoodDescription extends StatefulWidget {
   static String tag = '/FoodDescription';
 
@@ -74,11 +72,13 @@ class FoodDescriptionState extends State<FoodDescription> {
                 pinned: true,
                 titleSpacing: 0,
                 leading: IconButton(
-                    icon: Icon(Icons.arrow_back, color: innerBoxIsScrolled ? blackColor : white),
+                    icon: Icon(Icons.arrow_back,
+                        color: innerBoxIsScrolled ? blackColor : white),
                     onPressed: () {
                       finish(context);
                     }),
-                backgroundColor: innerBoxIsScrolled ? food_white : food_colorPrimary,
+                backgroundColor:
+                    innerBoxIsScrolled ? food_white : food_colorPrimary,
                 actionsIconTheme: IconThemeData(opacity: 0.0),
                 title: Container(
                   height: 60,
@@ -91,7 +91,8 @@ class FoodDescriptionState extends State<FoodDescription> {
                           children: <Widget>[],
                         ),
                         IconButton(
-                          icon: Icon(Icons.search, color: innerBoxIsScrolled ? blackColor : white),
+                          icon: Icon(Icons.search,
+                              color: innerBoxIsScrolled ? blackColor : white),
                           onPressed: () {},
                         ),
                       ],
@@ -122,22 +123,30 @@ class FoodDescriptionState extends State<FoodDescription> {
                     Container(
                       width: width,
                       padding: EdgeInsets.all(16),
-                      decoration: BoxDecoration(boxShadow: defaultBoxShadow(), color: white),
+                      decoration: BoxDecoration(
+                          boxShadow: defaultBoxShadow(), color: white),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          Text(food_lbl_burger, style: primaryTextStyle(size: 18)),
+                          Text(food_lbl_burger,
+                              style: primaryTextStyle(size: 18)),
                           totalRatting(food_lbl_order_rating),
                           SizedBox(height: 8),
                           Row(
                             children: <Widget>[
                               Container(
-                                decoration: gradientBoxDecoration(gradientColor1: food_color_blue_gradient1, gradientColor2: food_color_blue_gradient2),
+                                decoration: gradientBoxDecoration(
+                                    gradientColor1: food_color_blue_gradient1,
+                                    gradientColor2: food_color_blue_gradient2),
                                 padding: EdgeInsets.fromLTRB(8, 0, 8, 0),
                                 margin: EdgeInsets.only(right: 10),
-                                child: Text(food_lbl_offer, style: primaryTextStyle(size: 14, color: white)),
+                                child: Text(food_lbl_offer,
+                                    style: primaryTextStyle(
+                                        size: 14, color: white)),
                               ),
-                              Text(food_lbl_save_14_on_each_night, style: primaryTextStyle(color: food_textColorSecondary))
+                              Text(food_lbl_save_14_on_each_night,
+                                  style: primaryTextStyle(
+                                      color: food_textColorSecondary))
                             ],
                           ),
                           SizedBox(height: 8),
@@ -145,8 +154,14 @@ class FoodDescriptionState extends State<FoodDescription> {
                           SizedBox(height: 8),
                           Row(
                             children: <Widget>[
-                              Expanded(child: mVegOption(food_lbl_veg_only, food_view_color), flex: 1),
-                              Expanded(child: mVegOption(food_lbl_non_veg_only, food_color_red), flex: 2),
+                              Expanded(
+                                  child: mVegOption(
+                                      food_lbl_veg_only, food_view_color),
+                                  flex: 1),
+                              Expanded(
+                                  child: mVegOption(
+                                      food_lbl_non_veg_only, food_color_red),
+                                  flex: 2),
                             ],
                           )
                         ],
@@ -157,17 +172,24 @@ class FoodDescriptionState extends State<FoodDescription> {
                       child: Container(
                         margin: EdgeInsets.only(top: 16),
                         padding: EdgeInsets.all(16),
-                        decoration: BoxDecoration(boxShadow: defaultBoxShadow(), color: white),
+                        decoration: BoxDecoration(
+                            boxShadow: defaultBoxShadow(), color: white),
                         child: Row(
                           children: <Widget>[
-                            SvgPicture.asset(food_ic_comass, color: food_colorPrimary, width: width * 0.08, height: width * 0.08),
+                            SvgPicture.asset(food_ic_comass,
+                                color: food_colorPrimary,
+                                width: width * 0.08,
+                                height: width * 0.08),
                             SizedBox(width: 10),
                             Expanded(
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
-                                  Text(food_lbl_delivery_by_yumfood_with_online_tracking, style: boldTextStyle()),
-                                  Text(food_lbl_est_food_delivery_time, style: primaryTextStyle()),
+                                  Text(
+                                      food_lbl_delivery_by_yumfood_with_online_tracking,
+                                      style: boldTextStyle()),
+                                  Text(food_lbl_est_food_delivery_time,
+                                      style: primaryTextStyle()),
                                 ],
                               ),
                             )
@@ -176,7 +198,7 @@ class FoodDescriptionState extends State<FoodDescription> {
                       ),
                     ),
                     SizedBox(height: 16),
-                   /* Container(
+                    /* Container(
                       decoration: BoxDecoration(boxShadow: defaultBoxShadow(), color: white),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -203,7 +225,8 @@ class FoodDescriptionState extends State<FoodDescription> {
                     ),*/
                     SizedBox(height: 16),
                     Container(
-                      decoration: BoxDecoration(boxShadow: defaultBoxShadow(), color: white),
+                      decoration: BoxDecoration(
+                          boxShadow: defaultBoxShadow(), color: white),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
@@ -224,7 +247,7 @@ class FoodDescriptionState extends State<FoodDescription> {
                   ],
                 ),
               ),
-             /* Positioned(
+              /* Positioned(
                 bottom: 0,
                 right: 0,
                 left: 0,
@@ -299,8 +322,17 @@ class ItemList extends StatelessWidget {
                 RichText(
                   text: TextSpan(
                     children: [
-                      WidgetSpan(child: Padding(padding: EdgeInsets.only(right: 4), child: Image.asset(food_c_type, color: food_colorAccent, width: 16, height: 16))),
-                      TextSpan(text: model.name, style: primaryTextStyle(size: 16, color: food_textColorPrimary)),
+                      WidgetSpan(
+                          child: Padding(
+                              padding: EdgeInsets.only(right: 4),
+                              child: Image.asset(food_c_type,
+                                  color: food_colorAccent,
+                                  width: 16,
+                                  height: 16))),
+                      TextSpan(
+                          text: model.name,
+                          style: primaryTextStyle(
+                              size: 16, color: food_textColorPrimary)),
                     ],
                   ),
                 ),
@@ -308,7 +340,7 @@ class ItemList extends StatelessWidget {
               ],
             ),
           ),
-        //  Quantitybtn()
+          //  Quantitybtn()
         ],
       ),
     );
@@ -332,7 +364,8 @@ class ItemGrid extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           ClipRRect(
-            borderRadius: BorderRadius.only(topRight: Radius.circular(10), topLeft: Radius.circular(10)),
+            borderRadius: BorderRadius.only(
+                topRight: Radius.circular(10), topLeft: Radius.circular(10)),
             child: CachedNetworkImage(
               placeholder: placeholderWidgetFn(),
               imageUrl: model.image,
@@ -347,7 +380,9 @@ class ItemGrid extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(model.name, style: primaryTextStyle(), maxLines: 1),
-                Text(model.type, style: primaryTextStyle(color: food_textColorSecondary, size: 14)),
+                Text(model.type,
+                    style: primaryTextStyle(
+                        color: food_textColorSecondary, size: 14)),
                 SizedBox(height: 4),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,

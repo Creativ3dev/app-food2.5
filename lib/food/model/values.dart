@@ -112,12 +112,3 @@ String getRandomPhoto() {
 }
 
  */
-String getRandomCoumpound() {
-var coumpound;
-  if(coumpound==null) {
-    print('cest null');
-  }
-  else{
-
-  return coumpound='${"aefz"}';
-}}

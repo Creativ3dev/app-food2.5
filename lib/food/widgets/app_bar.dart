@@ -23,8 +23,7 @@ import 'package:nb_utils/nb_utils.dart';
 
 import 'stars.dart';
 
-
-
+//app bar details resto (image +close)
 class RestoAppBar extends StatelessWidget {
   static final double appBarHeight = 160;
 
@@ -39,130 +38,82 @@ class RestoAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double expandHeight = MediaQuery
-        .of(context)
-        .size
-        .height * 0.33;
-    var width = MediaQuery
-        .of(context)
-        .size
-        .width;
+    double expandHeight = MediaQuery.of(context).size.height * 0.33;
+    var width = MediaQuery.of(context).size.width;
     var mTime = 0;
 
-    Widget mOption(var icon, var value) {
-      return Container(
-        child: Column(
+    return SliverAppBar(
+      leading: IconButton(
+        onPressed: _onPressed,
+        icon: Icon(
+          Icons.close,
+          color: Colors.yellow,
+        ),
+        iconSize: 32,
+      ),
+      expandedHeight: appBarHeight,
+      forceElevated: true,
+      flexibleSpace: FlexibleSpaceBar(
+        centerTitle: false,
+        title: Wrap(
           children: <Widget>[
-            Icon(icon, color: food_colorPrimary, size: 20),
-            Text(value, style: primaryTextStyle(size: 16)),
-          ],
-        ),
-      );
-    }
-
-    Widget iconWithTitle(var icon, var value) {
-      return RichText(
-        text: TextSpan(
-          children: [
-            WidgetSpan(
-              child: Padding(padding: EdgeInsets.only(right: 16),
-                  child: Icon(icon, color: food_textColorSecondary, size: 18)),
-            ),
-            TextSpan(text: value,
-                style: primaryTextStyle(
-                    size: 16, color: food_textColorPrimary)),
-          ],
-        ),
-      );
-    }
-
-    Widget mGallery(var icon, var value) {
-      return RichText(
-        text: TextSpan(
-          children: [
-            WidgetSpan(
-              child: Padding(padding: EdgeInsets.only(right: 8),
-                  child: Icon(icon, color: food_textColorPrimary, size: 18)),
-            ),
-            TextSpan(text: value,
-                style: primaryTextStyle(
-                    size: 16, color: food_textColorPrimary)),
-          ],
-        ),
-      );
-    }
-
-      return SliverAppBar(
-        leading: IconButton(
-          onPressed: _onPressed,
-          icon: Icon(Icons.close,
-            color: Colors.yellow,),
-          iconSize: 32,
-        ),
-        expandedHeight: appBarHeight,
-        forceElevated: true,
-        flexibleSpace: FlexibleSpaceBar(
-          centerTitle: false,
-          title: Wrap(
-            children: <Widget>[
-             /* Text(
+            /* Text(
                 resto.name,
                 overflow: TextOverflow.ellipsis,
               ),*/
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  Container(
-                    width: 80,
-                    alignment: Alignment.bottomLeft,
-                   /* child: StarRating(
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Container(
+                  width: 80,
+                  alignment: Alignment.bottomLeft,
+                  /* child: StarRating(
                       rating: resto.rating,
                       color: Colors.white,
                       size: 16,
                     ),*/
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 6),
-                   /* child: Text(
+                ),
+                Padding(
+                  padding: EdgeInsets.only(left: 6),
+                  /* child: Text(
                        resto.name,
                       style: TextStyle(
                           fontSize: Theme.of(context).textTheme.caption.fontSize),
                     ),*/
-                  ),
-                ],
-              ),
-              Padding(
-                padding: EdgeInsets.only(top: 2),
-               /* child: Text(
+                ),
+              ],
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: 2),
+              /* child: Text(
                   '${resto.categorie} ● ${resto.coumpound}',
                   style: TextStyle(
                       fontSize: Theme.of(context).textTheme.caption.fontSize),
                 ),*/
-              ),
-            ],
-          ),
-          background: Stack(
-            fit: StackFit.expand,
-            children: [
-              Image.network(
-                resto.photo,
-                fit: BoxFit.cover,
-              ),
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(0),
-                  gradient: LinearGradient(
-
-                    colors: [
-                      const Color(0xFFFFFF),
-                      const Color(0xFFFFFF),
-                    ],
-                  ),
+            ),
+          ],
+        ),
+        background: Stack(
+          fit: StackFit.expand,
+          children: [
+            Image.network(
+              resto.photo,
+              fit: BoxFit.cover,
+            ),
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(0),
+                gradient: LinearGradient(
+                  colors: [
+                    const Color(0xFFFFFF),
+                    const Color(0xFFFFFF),
+                  ],
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
-      );
-    }
+      ),
+    );
   }
+}

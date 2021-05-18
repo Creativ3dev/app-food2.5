@@ -11,7 +11,6 @@ import 'package:app_food/food/utils/FoodImages.dart';
 import 'package:app_food/food/utils/FoodString.dart';
 import 'package:app_food/food/utils/FoodWidget.dart';
 import 'package:app_food/main/utils/AppWidget.dart';
-
 import 'FoodAddAddress.dart';
 import 'FoodBookCart.dart';
 import 'FoodDescription.dart';
@@ -125,10 +124,9 @@ class FoodDashboardState extends State<FoodDashboard> {
                           SizedBox(height: 16),
                           SizedBox(
                               width: 300,
-                              child:ElevatedButton.icon(
-                                icon: Icon(
-                                    Icons.arrow_forward_ios_outlined,
-                                    size:20),
+                              child: ElevatedButton.icon(
+                                icon: Icon(Icons.arrow_forward_ios_outlined,
+                                    size: 20),
                                 label: Text(
                                   '  restaurant',
                                   style: TextStyle(fontSize: 20),
@@ -136,22 +134,21 @@ class FoodDashboardState extends State<FoodDashboard> {
                                 onPressed: () {
                                   Navigator.of(context).pushReplacement(
                                       MaterialPageRoute(
-                                          builder: (context) =>
-                                              HomePage()));     },
+                                          builder: (context) => HomePage()));
+                                },
                                 style: ButtonStyle(
-                                  backgroundColor: MaterialStateProperty.all<Color>(Colors.lightBlueAccent),
-                                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                                  backgroundColor:
+                                      MaterialStateProperty.all<Color>(
+                                          Colors.lightBlueAccent),
+                                  shape: MaterialStateProperty.all<
+                                      RoundedRectangleBorder>(
                                     RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(18.0),
-
                                     ),
                                   ),
                                 ),
-                              )
-                          ),
-
+                              )),
                           SizedBox(height: 300),
-
                         ],
                       ),
                     ),
@@ -162,7 +159,6 @@ class FoodDashboardState extends State<FoodDashboard> {
           ],
         ),
       ),
-
       drawer: FoodSideMenu(),
     );
   }
@@ -289,6 +285,7 @@ class Collection extends StatelessWidget {
   }
 }
 
+//menu
 class FoodSideMenu extends StatefulWidget {
   @override
   FoodSideMenuState createState() => FoodSideMenuState();
@@ -365,7 +362,7 @@ class FoodSideMenuState extends State<FoodSideMenu> {
                     children: <Widget>[
                       CircleAvatar(
                           backgroundImage:
-                          CachedNetworkImageProvider(food_ic_user1),
+                              CachedNetworkImageProvider(food_ic_user1),
                           radius: 40),
                       Text(food_username,
                           style: primaryTextStyle(color: food_white)),
@@ -392,7 +389,7 @@ class FoodSideMenuState extends State<FoodSideMenu> {
                           Icons.person_outline,
                           food_lbl_profile,
                           FoodProfile()),
-                       ElevatedButton(
+                      ElevatedButton(
                         onPressed: signOut,
                         child: Text("Log out"),
                       ),
@@ -400,8 +397,7 @@ class FoodSideMenuState extends State<FoodSideMenu> {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(
-                                builder: (context) => HomePage()),
+                            MaterialPageRoute(builder: (context) => HomePage()),
                           );
                         },
                         child: Text("resto"),
@@ -419,13 +415,13 @@ class FoodSideMenuState extends State<FoodSideMenu> {
                       Text(food_lbl_quick_searches, style: primaryTextStyle()),
                       Text(food_lbl_cafe,
                           style:
-                          primaryTextStyle(color: food_textColorSecondary)),
+                              primaryTextStyle(color: food_textColorSecondary)),
                       Text(food_hint_search_restaurants,
                           style:
-                          primaryTextStyle(color: food_textColorSecondary)),
+                              primaryTextStyle(color: food_textColorSecondary)),
                       Text(food_lbl_bars,
                           style:
-                          primaryTextStyle(color: food_textColorSecondary)),
+                              primaryTextStyle(color: food_textColorSecondary)),
                     ],
                   ),
                 )

@@ -10,6 +10,7 @@ import 'package:app_food/main/utils/AppWidget.dart';
 
 import '../utils/FoodColors.dart';
 
+//non utilisé
 class FoodGallery extends StatefulWidget {
   static String tag = '/FoodGallery';
 

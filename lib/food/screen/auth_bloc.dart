@@ -2,6 +2,7 @@ import 'package:app_food/food/services/auth_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
+//peut etre utiliser pour la connnexion avec google
 /*class AuthBloc {
   final authService = AuthService();
   final googleSignin = GoogleSignIn(scopes: ['email']);
@@ -29,7 +30,7 @@ import 'package:google_sign_in/google_sign_in.dart';
     }
 
   }
-
+//se deconnecter
   logout() {
     authService.logout();
   }

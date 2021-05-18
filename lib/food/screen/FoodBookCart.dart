@@ -5,16 +5,16 @@ import 'package:nb_utils/nb_utils.dart';
 import 'package:app_food/food/model/FoodModel.dart';
 import 'package:app_food/food/utils/FoodColors.dart';
 import 'package:app_food/food/utils/FoodDataGenerator.dart';
-
 import 'package:app_food/food/utils/FoodString.dart';
 import 'package:app_food/food/utils/FoodWidget.dart';
 import 'package:app_food/food/utils/dotted_border.dart';
 import 'package:app_food/main/utils/AppWidget.dart';
-
 import '../utils/FoodColors.dart';
 import 'FoodAddressConfirmation.dart';
 import 'FoodCoupon.dart';
 import 'FoodPayment.dart';
+
+// non utilisé
 
 class FoodBookCart extends StatefulWidget {
   static String tag = '/BookCart';
@@ -59,24 +59,31 @@ class FoodBookCartState extends State<FoodBookCart> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
-                            Text(food_lbl_Sweet_home, style: primaryTextStyle()),
+                            Text(food_lbl_Sweet_home,
+                                style: primaryTextStyle()),
                             GestureDetector(
                               onTap: () {
                                 FoodAddressConfirmation().launch(context);
                               },
-                              child: Text(food_lbl_change, style: primaryTextStyle(color: Colors.transparent)),
+                              child: Text(food_lbl_change,
+                                  style: primaryTextStyle(
+                                      color: Colors.transparent)),
                             ),
                           ],
                         ),
-                        Text(food_lbl_address_dashboard, style: primaryTextStyle()),
-                        Text(food_lbl_delivery_time_36_min, style: primaryTextStyle(size: 14, color: food_textColorSecondary)),
+                        Text(food_lbl_address_dashboard,
+                            style: primaryTextStyle()),
+                        Text(food_lbl_delivery_time_36_min,
+                            style: primaryTextStyle(
+                                size: 14, color: food_textColorSecondary)),
                       ],
                     ),
                   )
                 ],
               ),
             ),
-            bottomBillDetail(context, food_color_blue_gradient1, food_color_blue_gradient2, food_lbl_make_payment, onTap: () {
+            bottomBillDetail(context, food_color_blue_gradient1,
+                food_color_blue_gradient2, food_lbl_make_payment, onTap: () {
               FoodPayment().launch(context);
             })
           ],
@@ -111,7 +118,8 @@ class FoodBookCartState extends State<FoodBookCart> {
                         }),
                     Divider(color: food_view_color, height: 0.5),
                     SizedBox(height: 8),
-                    Text(food_lbl_restaurants_bill.toUpperCase(), style: boldTextStyle()),
+                    Text(food_lbl_restaurants_bill.toUpperCase(),
+                        style: boldTextStyle()),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
@@ -123,8 +131,10 @@ class FoodBookCartState extends State<FoodBookCart> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        Text(food_lbl_coupon_discount, style: primaryTextStyle()),
-                        Text(food_lbl_70, style: primaryTextStyle(color: food_colorAccent)),
+                        Text(food_lbl_coupon_discount,
+                            style: primaryTextStyle()),
+                        Text(food_lbl_70,
+                            style: primaryTextStyle(color: food_colorAccent)),
                       ],
                     ),
                     SizedBox(
@@ -155,7 +165,10 @@ class FoodBookCartState extends State<FoodBookCart> {
                               children: <Widget>[
                                 Expanded(
                                   flex: 2,
-                                  child: Text(food_lbl_you_have_saved_30_on_the_bill, style: primaryTextStyle()).center(),
+                                  child: Text(
+                                          food_lbl_you_have_saved_30_on_the_bill,
+                                          style: primaryTextStyle())
+                                      .center(),
                                 ),
                                 Expanded(
                                     flex: 1,
@@ -163,7 +176,9 @@ class FoodBookCartState extends State<FoodBookCart> {
                                       onTap: () {
                                         FoodCoupon().launch(context);
                                       },
-                                      child: Text(food_lbl_edit, style: primaryTextStyle()).center(),
+                                      child: Text(food_lbl_edit,
+                                              style: primaryTextStyle())
+                                          .center(),
                                     ))
                               ],
                             )),

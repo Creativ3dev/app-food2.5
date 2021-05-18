@@ -26,7 +26,11 @@ class FoodWalkThroughState extends State<FoodWalkThrough> {
 
   int currentIndexPage = 0;
   int pageLength;
-  var titles = ["Decouvrer les restaurants de la Martinique", "Les plus Delicieux plats", "En un click"];
+  var titles = [
+    "Decouvrer les restaurants de la Martinique",
+    "Les plus Delicieux plats",
+    "En un click"
+  ];
   var subTitles = [
     "Lorem Ipsum is simply dummy text of the printing and typesetting industry.This is simply text ",
     "Lorem Ipsum is simply dummy text of the printing and typesetting industry.This is simply text  ",
@@ -39,9 +43,8 @@ class FoodWalkThroughState extends State<FoodWalkThrough> {
     pageLength = 3;
     super.initState();
   }
-  Future<void> signOut() async {
-    await Authentification().signOut();
-  }
+
+
   @override
   Widget build(BuildContext context) {
     changeStatusColor(food_colorPrimary_light);
@@ -72,31 +75,48 @@ class FoodWalkThroughState extends State<FoodWalkThrough> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Text(titles[currentIndexPage], style: boldTextStyle(size: 20, color: food_textColorPrimary)),
+                  Text(titles[currentIndexPage],
+                      style: boldTextStyle(
+                          size: 20, color: food_textColorPrimary)),
                   SizedBox(height: 10),
                   Center(
-                    child: Text(subTitles[currentIndexPage], style: secondaryTextStyle(size: 16, color: food_textColorSecondary), textAlign: TextAlign.center),
+                    child: Text(subTitles[currentIndexPage],
+                        style: secondaryTextStyle(
+                            size: 16, color: food_textColorSecondary),
+                        textAlign: TextAlign.center),
                   ),
                   SizedBox(height: 50),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       GestureDetector(
-                        child: Text(food_lbl_skip, style: secondaryTextStyle(size: 16)),
+                        child: Text(food_lbl_skip,
+                            style: secondaryTextStyle(size: 16)),
                         onTap: () {
                           FoodSignIn().launch(context);
                         },
                       ),
-                      DotsIndicator(dotsCount: 3, position: currentIndexPage, decorator: DotsDecorator(color: food_view_color, activeColor: food_colorPrimary)),
+                      DotsIndicator(
+                          dotsCount: 3,
+                          position: currentIndexPage,
+                          decorator: DotsDecorator(
+                              color: food_view_color,
+                              activeColor: food_colorPrimary)),
                       InkWell(
-                        child: Padding(child: Text(food_lbl_next, style: primaryTextStyle(color: food_colorPrimary)), padding: EdgeInsets.all(8)),
+                        child: Padding(
+                            child: Text(food_lbl_next,
+                                style:
+                                    primaryTextStyle(color: food_colorPrimary)),
+                            padding: EdgeInsets.all(8)),
                         onTap: () {
                           currentIndexPage = currentIndexPage + 1;
                           if (currentIndexPage >= 3) {
                             currentIndexPage = 0;
                             FoodSignIn().launch(context);
                           } else {
-                            pageController.animateToPage(currentIndexPage, duration: Duration(milliseconds: 500), curve: Curves.ease);
+                            pageController.animateToPage(currentIndexPage,
+                                duration: Duration(milliseconds: 500),
+                                curve: Curves.ease);
                             setState(() {});
                           }
                         },
@@ -130,14 +150,19 @@ class WalkThrough extends StatelessWidget {
               arcType: ArcType.CONVEX,
               edge: Edge.BOTTOM,
               height: (MediaQuery.of(context).size.width) / 20,
-              child: Container(height: (MediaQuery.of(context).size.height) / 1.7, width: MediaQuery.of(context).size.width, color: food_colorPrimary_light),
+              child: Container(
+                  height: (MediaQuery.of(context).size.height) / 1.7,
+                  width: MediaQuery.of(context).size.width,
+                  color: food_colorPrimary_light),
             ),
             SafeArea(
               child: Container(
                 width: MediaQuery.of(context).size.width,
                 height: (MediaQuery.of(context).size.height) / 1.7,
                 alignment: Alignment.center,
-                child: SvgPicture.asset(textContent, width: 300, height: (MediaQuery.of(context).size.height) / 2.8),
+                child: SvgPicture.asset(textContent,
+                    width: 300,
+                    height: (MediaQuery.of(context).size.height) / 2.8),
               ),
             ),
           ],

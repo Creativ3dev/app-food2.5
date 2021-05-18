@@ -7,8 +7,6 @@ import 'package:app_food/food/utils/FoodColors.dart';
 import 'package:app_food/food/utils/FoodImages.dart';
 import 'package:app_food/food/utils/FoodString.dart';
 import 'package:app_food/main/utils/AppWidget.dart';
-
-
 import '../utils/FoodColors.dart';
 
 class FoodBookDetail extends StatefulWidget {
@@ -33,7 +31,18 @@ class FoodBookDetailState extends State<FoodBookDetail> {
     super.initState();
     mPeopleList = ["1", "2", "3", "4", "5+"];
     mFoodList = ["Veg", "Non Veg"];
-    mTimeList = ["07:00", "07:30", "08:00", "08:30", "09:00", "09:15", "09:30", "10:00", "10:30", "11:00"];
+    mTimeList = [
+      "07:00",
+      "07:30",
+      "08:00",
+      "08:30",
+      "09:00",
+      "09:15",
+      "09:30",
+      "10:00",
+      "10:30",
+      "11:00"
+    ];
     formatted = formatter.format(now);
   }
 
@@ -58,9 +67,18 @@ class FoodBookDetailState extends State<FoodBookDetail> {
             child: Container(
               alignment: Alignment.center,
               margin: EdgeInsets.only(right: 16, top: 4),
-              decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), color: mPeople == index ? food_colorPrimary : food_colorPrimary_light),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: mPeople == index
+                      ? food_colorPrimary
+                      : food_colorPrimary_light),
               padding: EdgeInsets.fromLTRB(16, 0, 16, 0),
-              child: Text(mPeopleList[index], style: primaryTextStyle(color: mPeople == index ? food_white : food_textColorPrimary)).center(),
+              child: Text(mPeopleList[index],
+                      style: primaryTextStyle(
+                          color: mPeople == index
+                              ? food_white
+                              : food_textColorPrimary))
+                  .center(),
             ),
           );
         },
@@ -81,13 +99,26 @@ class FoodBookDetailState extends State<FoodBookDetail> {
           },
           child: Container(
             alignment: Alignment.center,
-            decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), color: mTime == index ? food_colorPrimary : food_colorPrimary_light),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: mTime == index
+                    ? food_colorPrimary
+                    : food_colorPrimary_light),
             padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
-            child: Text(mTimeList[index], style: primaryTextStyle(color: mTime == index ? food_white : food_textColorPrimary)).center(),
+            child: Text(mTimeList[index],
+                    style: primaryTextStyle(
+                        color: mTime == index
+                            ? food_white
+                            : food_textColorPrimary))
+                .center(),
           ),
         );
       },
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4, mainAxisSpacing: 16, crossAxisSpacing: 16, childAspectRatio: 2.0),
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 4,
+          mainAxisSpacing: 16,
+          crossAxisSpacing: 16,
+          childAspectRatio: 2.0),
     );
 
     final mFoodInfo = Container(
@@ -106,9 +137,18 @@ class FoodBookDetailState extends State<FoodBookDetail> {
             child: Container(
               alignment: Alignment.center,
               margin: EdgeInsets.only(right: 16, top: 4),
-              decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), color: mFood == index ? food_colorPrimary : food_colorPrimary_light),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: mFood == index
+                      ? food_colorPrimary
+                      : food_colorPrimary_light),
               padding: EdgeInsets.fromLTRB(16, 0, 16, 0),
-              child: Text(mFoodList[index], style: primaryTextStyle(color: mFood == index ? food_white : food_textColorPrimary)).center(),
+              child: Text(mFoodList[index],
+                      style: primaryTextStyle(
+                          color: mFood == index
+                              ? food_white
+                              : food_textColorPrimary))
+                  .center(),
             ),
           );
         },
@@ -130,7 +170,8 @@ class FoodBookDetailState extends State<FoodBookDetail> {
                     children: <Widget>[
                       Align(
                         alignment: Alignment.topCenter,
-                        child: SvgPicture.asset(food_dinner_table, height: width * 0.4, width: width * 0.4),
+                        child: SvgPicture.asset(food_dinner_table,
+                            height: width * 0.4, width: width * 0.4),
                       ),
                       SizedBox(height: 16),
                       Text(food_lbl_how_many_people, style: boldTextStyle()),
@@ -145,15 +186,21 @@ class FoodBookDetailState extends State<FoodBookDetail> {
                       SizedBox(height: 4),
                       mTimeInfo,
                       SizedBox(height: 16),
-                      Text(food_lbl_any_food_preference, style: boldTextStyle()),
+                      Text(food_lbl_any_food_preference,
+                          style: boldTextStyle()),
                       SizedBox(height: 4),
                       mFoodInfo,
                       SizedBox(height: 24),
                       Container(
                         width: MediaQuery.of(context).size.width,
                         padding: EdgeInsets.only(top: 10, bottom: 10),
-                        decoration: BoxDecoration(color: food_colorPrimary, borderRadius: BorderRadius.circular(50), boxShadow: defaultBoxShadow()),
-                        child: Text(food_lbl_book_table, style: primaryTextStyle(color: white)).center(),
+                        decoration: BoxDecoration(
+                            color: food_colorPrimary,
+                            borderRadius: BorderRadius.circular(50),
+                            boxShadow: defaultBoxShadow()),
+                        child: Text(food_lbl_book_table,
+                                style: primaryTextStyle(color: white))
+                            .center(),
                       ),
                       SizedBox(height: 16),
                     ],

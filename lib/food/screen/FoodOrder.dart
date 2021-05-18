@@ -9,6 +9,7 @@ import 'package:app_food/main/utils/AppWidget.dart';
 
 import '../utils/FoodColors.dart';
 
+//non utilisé
 class FoodOrder extends StatefulWidget {
   static String tag = '/FoodOrder';
 
@@ -64,10 +65,7 @@ class Order extends StatelessWidget {
     var width = MediaQuery.of(context).size.width;
 
     return Container(
-      margin: EdgeInsets.only(
-          bottom: 16,
-          left: 16,
-          right: 16),
+      margin: EdgeInsets.only(bottom: 16, left: 16, right: 16),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
@@ -83,8 +81,8 @@ class Order extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text(model.name,style: primaryTextStyle()),
-                      Text(model.price,style: primaryTextStyle()),
+                      Text(model.name, style: primaryTextStyle()),
+                      Text(model.price, style: primaryTextStyle()),
                       //text("sd",textColor: food_textColorSecondary),
                     ],
                   ),

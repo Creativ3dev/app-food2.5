@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:anim_search_bar/anim_search_bar.dart';
 import 'package:app_food/food/model/filter.dart';
 import 'package:app_food/food/model/resto.dart';
+import 'package:app_food/food/services/address_search.dart';
 import 'package:app_food/food/utils/FoodColors.dart';
 import 'package:app_food/food/widgets/dialogs/filter_select.dart';
 import 'package:app_food/food/widgets/empty_list.dart';
@@ -15,9 +16,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:app_food/food/model/data.dart'as data;
 import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
+import 'package:uuid/uuid.dart';
 import '../../main.dart';
 import 'FoodDashboard.dart';
 import 'FoodViewRestaurants.dart';
+import 'package:app_food/food/services/place_service.dart';
+import 'package:app_food/food/services/address_search.dart';
+
 //lsite des restos
 
 class HomePage extends StatefulWidget {
@@ -27,6 +32,7 @@ class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
 }
+
 
 class _HomePageState extends State<HomePage> {
   FocusNode focusNode = FocusNode();
@@ -123,7 +129,12 @@ class _HomePageState extends State<HomePage> {
             IconButton(
               icon: Icon(actionIcon.icon,
                   color: appStore.textPrimaryColor),
-              onPressed: () {
+              onPressed: () async {
+                final sessionToken = Uuid().v4();
+                final Suggestion result = await showSearch(
+                  context: context,
+                  delegate: AddressSearch(sessionToken),
+                );
                 if (this.actionIcon.icon == Icons.search) {
                   this.actionIcon = Icon(Icons.close,
                       color: appStore.textPrimaryColor);

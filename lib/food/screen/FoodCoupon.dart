@@ -4,13 +4,12 @@ import 'package:nb_utils/nb_utils.dart';
 import 'package:app_food/food/model/FoodModel.dart';
 import 'package:app_food/food/utils/FoodColors.dart';
 import 'package:app_food/food/utils/FoodDataGenerator.dart';
-
 import 'package:app_food/food/utils/FoodString.dart';
 import 'package:app_food/food/utils/FoodWidget.dart';
 import 'package:app_food/food/utils/dotted_border.dart';
-import 'package:app_food/main/utils/AppWidget.dart';
 
 //non utiliser
+
 class FoodCoupon extends StatefulWidget {
   static String tag = '/FoodCoupon';
 
@@ -53,7 +52,10 @@ class FoodCouponState extends State<FoodCoupon> {
                   Text(food_lbl_apply_coupons, style: boldTextStyle(size: 24)),
                   SizedBox(height: 16),
                   Container(
-                    decoration: BoxDecoration(color: food_colorPrimary, boxShadow: defaultBoxShadow(), borderRadius: BorderRadius.circular(50)),
+                    decoration: BoxDecoration(
+                        color: food_colorPrimary,
+                        boxShadow: defaultBoxShadow(),
+                        borderRadius: BorderRadius.circular(50)),
                     child: Row(
                       children: <Widget>[
                         Expanded(
@@ -73,8 +75,12 @@ class FoodCouponState extends State<FoodCoupon> {
                               onTap: () {},
                               child: Container(
                                 padding: EdgeInsets.all(12.0),
-                                decoration: gradientBoxDecoration(radius: 50, gradientColor1: food_color_blue_gradient1, gradientColor2: food_color_blue_gradient2),
-                                child: Icon(Icons.arrow_forward, color: food_white),
+                                decoration: gradientBoxDecoration(
+                                    radius: 50,
+                                    gradientColor1: food_color_blue_gradient1,
+                                    gradientColor2: food_color_blue_gradient2),
+                                child: Icon(Icons.arrow_forward,
+                                    color: food_white),
                               ),
                             ))
                       ],
@@ -89,7 +95,10 @@ class FoodCouponState extends State<FoodCoupon> {
                         width: width * 0.1,
                         margin: EdgeInsets.only(right: 8),
                       ),
-                      Text(food_lbl_or_use_your_mobile_email.toUpperCase(), style: primaryTextStyle(size: 14, color: food_textColorSecondary)).center(),
+                      Text(food_lbl_or_use_your_mobile_email.toUpperCase(),
+                              style: primaryTextStyle(
+                                  size: 14, color: food_textColorSecondary))
+                          .center(),
                       Container(
                         height: 0.6,
                         color: food_view_color,
@@ -142,7 +151,9 @@ class Coupon extends StatelessWidget {
               child: Container(
                 width: width * 0.3,
                 color: food_color_light_primary,
-                child: Text(model.offer, style: primaryTextStyle(color: food_colorAccent)).center(),
+                child: Text(model.offer,
+                        style: primaryTextStyle(color: food_colorAccent))
+                    .center(),
               ),
             ),
           ),
@@ -150,7 +161,9 @@ class Coupon extends StatelessWidget {
             height: 4,
           ),
           Text(model.couponsName, style: primaryTextStyle(size: 18)),
-          Text(model.info, style: primaryTextStyle(color: food_textColorSecondary)).center(),
+          Text(model.info,
+                  style: primaryTextStyle(color: food_textColorSecondary))
+              .center(),
           Container(
             height: 0.5,
             color: food_view_color,

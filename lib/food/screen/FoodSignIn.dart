@@ -231,7 +231,8 @@ class FoodSignInState extends State<FoodSignIn> {
 
                                    */
                                     await authClass.googleSignIn(context);
-                                    toast('Back button');
+                                    toast('connecté');
+
 
                                 },
 

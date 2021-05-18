@@ -280,13 +280,13 @@ class _RestoPageState extends State<RestoPage> {
                               SizedBox(height: 16),
                               Text(food_lbl_additional_detail.toUpperCase(), style: primaryTextStyle()),
                               SizedBox(height: 20),
-                              iconWithTitle(Icons.call, food_user_contact).paddingOnly(top: 4,bottom: 4),
+                              iconWithTitle(Icons.call, _resto.numero).paddingOnly(top: 4,bottom: 4),
                               Divider(height: 0.5, color: food_view_color),
                               iconWithTitle(Icons.location_on, _resto.formatted_address).paddingOnly(top: 4,bottom: 4),
                               Divider(height: 0.5, color: food_view_color),
-                              iconWithTitle(Icons.schedule, food_lbl_open_hours).paddingOnly(top: 4,bottom: 4),
+                              iconWithTitle(Icons.web_sharp, _resto.siteweb).paddingOnly(top: 4,bottom: 4),
                               Divider(height: 0.5, color: food_view_color),
-                              iconWithTitle(Icons.person_outline, food_lbl__100_for_two_people_approx).paddingOnly(top: 4,bottom: 4),
+                              iconWithTitle(Icons.watch_later, _resto.horaire).paddingOnly(top: 4,bottom: 4),
 
                               SizedBox(height: 16),
                               Container(

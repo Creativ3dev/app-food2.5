@@ -1,15 +1,14 @@
 import 'dart:async';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:app_food/food/utils/FoodColors.dart';
 import 'package:app_food/food/utils/FoodString.dart';
-import 'package:app_food/main/utils/AppWidget.dart';
-
 import '../utils/FoodImages.dart';
 import 'FoodAddAddress.dart';
+
+// non utulisée
 
 class FoodAddressConfirmation extends StatefulWidget {
   static String tag = '/FoodAddressConfirmation';
@@ -36,14 +35,20 @@ class FoodAddressConfirmationState extends State<FoodAddressConfirmation> {
                 alignment: Alignment.center,
                 height: width * 0.55,
                 width: width,
-                decoration: BoxDecoration(borderRadius: BorderRadius.only(topLeft: Radius.circular(24), topRight: Radius.circular(24)), color: food_white),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(24),
+                        topRight: Radius.circular(24)),
+                    color: food_white),
                 padding: EdgeInsets.all(16),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text(food_lbl_set_delivery_information.toUpperCase(), style: primaryTextStyle(size: 18)),
-                    Text(food_lbl_location, style: secondaryTextStyle(size: 14)),
+                    Text(food_lbl_set_delivery_information.toUpperCase(),
+                        style: primaryTextStyle(size: 18)),
+                    Text(food_lbl_location,
+                        style: secondaryTextStyle(size: 14)),
                     SizedBox(height: 4),
                     Text(food_lbl_address_dashboard, style: primaryTextStyle()),
                     Container(
@@ -62,8 +67,12 @@ class FoodAddressConfirmationState extends State<FoodAddressConfirmation> {
                             },
                             child: Container(
                               padding: EdgeInsets.only(top: 4, bottom: 4),
-                              decoration: BoxDecoration(color: food_textColorPrimary, borderRadius: BorderRadius.circular(50)),
-                              child: Text(food_lbl_add_more_details, style: primaryTextStyle()).center(),
+                              decoration: BoxDecoration(
+                                  color: food_textColorPrimary,
+                                  borderRadius: BorderRadius.circular(50)),
+                              child: Text(food_lbl_add_more_details,
+                                      style: primaryTextStyle())
+                                  .center(),
                             ),
                           ),
                         ),
@@ -72,8 +81,13 @@ class FoodAddressConfirmationState extends State<FoodAddressConfirmation> {
                           flex: 1,
                           child: Container(
                             padding: EdgeInsets.only(top: 4, bottom: 4),
-                            decoration: BoxDecoration(border: Border.all(color: food_colorPrimary), borderRadius: BorderRadius.circular(50), color: white),
-                            child: Text(food_lbl_confirm_location, style: primaryTextStyle(color: white)).center(),
+                            decoration: BoxDecoration(
+                                border: Border.all(color: food_colorPrimary),
+                                borderRadius: BorderRadius.circular(50),
+                                color: white),
+                            child: Text(food_lbl_confirm_location,
+                                    style: primaryTextStyle(color: white))
+                                .center(),
                           ),
                         )
                       ],
@@ -106,14 +120,16 @@ class MapPageState extends State<MapPage> {
   }
 
   void setCustomMapPin() async {
-    pinLocationIcon = await BitmapDescriptor.fromAssetImage(ImageConfiguration(devicePixelRatio: 2.5), food_ic_map);
+    pinLocationIcon = await BitmapDescriptor.fromAssetImage(
+        ImageConfiguration(devicePixelRatio: 2.5), food_ic_map);
   }
 
   @override
   Widget build(BuildContext context) {
     LatLng pinPosition = LatLng(37.3797536, -122.1017334);
 
-    CameraPosition initialLocation = CameraPosition(zoom: 16, bearing: 30, target: pinPosition);
+    CameraPosition initialLocation =
+        CameraPosition(zoom: 16, bearing: 30, target: pinPosition);
 
     return GoogleMap(
       myLocationEnabled: true,
@@ -124,7 +140,10 @@ class MapPageState extends State<MapPage> {
         controller.setMapStyle(Utils.mapStyles);
         _controller.complete(controller);
         setState(() {
-          _markers.add(Marker(markerId: MarkerId('value'), position: pinPosition, icon: pinLocationIcon));
+          _markers.add(Marker(
+              markerId: MarkerId('value'),
+              position: pinPosition,
+              icon: pinLocationIcon));
         });
       },
     );

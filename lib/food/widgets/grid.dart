@@ -29,9 +29,9 @@ class RestoGrid extends StatelessWidget {
       minSpacing: _minSpacingPx,
       children: _restos
           .map((resto) => RestoCard(
-        resto: resto,
-        onRestoPressed: _onRestoPressed,
-      ))
+                resto: resto,
+                onRestoPressed: _onRestoPressed,
+              ))
           .toList(),
     );
   }

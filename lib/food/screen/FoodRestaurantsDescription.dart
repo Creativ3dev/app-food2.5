@@ -16,15 +16,18 @@ import 'FoodBookDetail.dart';
 import 'FoodDescription.dart';
 import 'FoodGallery.dart';
 import 'FoodReview.dart';
+
 //page non utilise
 class FoodRestaurantsDescription extends StatefulWidget {
   static String tag = '/FoodRestaurantsDescription';
 
   @override
-  FoodRestaurantsDescriptionState createState() => FoodRestaurantsDescriptionState();
+  FoodRestaurantsDescriptionState createState() =>
+      FoodRestaurantsDescriptionState();
 }
 
-class FoodRestaurantsDescriptionState extends State<FoodRestaurantsDescription> {
+class FoodRestaurantsDescriptionState
+    extends State<FoodRestaurantsDescription> {
   List<ReviewModel> mReviewList;
   List<FoodDish> mList2;
   var mPeopleList, mCuisine;
@@ -82,9 +85,14 @@ class FoodRestaurantsDescriptionState extends State<FoodRestaurantsDescription> 
         text: TextSpan(
           children: [
             WidgetSpan(
-              child: Padding(padding: EdgeInsets.only(right: 16), child: Icon(icon, color: food_textColorSecondary, size: 18)),
+              child: Padding(
+                  padding: EdgeInsets.only(right: 16),
+                  child: Icon(icon, color: food_textColorSecondary, size: 18)),
             ),
-            TextSpan(text: value, style: primaryTextStyle(size: 16, color: food_textColorPrimary)),
+            TextSpan(
+                text: value,
+                style:
+                    primaryTextStyle(size: 16, color: food_textColorPrimary)),
           ],
         ),
       );
@@ -95,9 +103,14 @@ class FoodRestaurantsDescriptionState extends State<FoodRestaurantsDescription> 
         text: TextSpan(
           children: [
             WidgetSpan(
-              child: Padding(padding: EdgeInsets.only(right: 8), child: Icon(icon, color: food_textColorPrimary, size: 18)),
+              child: Padding(
+                  padding: EdgeInsets.only(right: 8),
+                  child: Icon(icon, color: food_textColorPrimary, size: 18)),
             ),
-            TextSpan(text: value, style: primaryTextStyle(size: 16, color: food_textColorPrimary)),
+            TextSpan(
+                text: value,
+                style:
+                    primaryTextStyle(size: 16, color: food_textColorPrimary)),
           ],
         ),
       );
@@ -109,9 +122,11 @@ class FoodRestaurantsDescriptionState extends State<FoodRestaurantsDescription> 
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            Text(heading, style: primaryTextStyle(color: food_textColorSecondary)),
+            Text(heading,
+                style: primaryTextStyle(color: food_textColorSecondary)),
             Container(height: 0.5, width: width * 0.45, color: food_view_color),
-            Text(rating, style: primaryTextStyle(color: food_textColorSecondary)),
+            Text(rating,
+                style: primaryTextStyle(color: food_textColorSecondary)),
           ],
         ),
       );
@@ -128,78 +143,100 @@ class FoodRestaurantsDescriptionState extends State<FoodRestaurantsDescription> 
             child: SingleChildScrollView(
               child: IntrinsicHeight(
                   child: Container(
-                    decoration: BoxDecoration(borderRadius: BorderRadius.only(topLeft: Radius.circular(24), topRight: Radius.circular(24)), color: food_white),
-                    height: MediaQuery.of(context).size.height,
-                    padding: EdgeInsets.all(16),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(food_lbl_rate_your_Experience, style: primaryTextStyle()),
-                        Tags(
-                          itemCount: mCuisine.length,
-                          spacing: 16,
-                          alignment: WrapAlignment.start,
-                          itemBuilder: (int index) {
-                            return Tooltip(
-                              textStyle: TextStyle(fontSize: 16),
-                              decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), color: food_colorPrimary),
-                              padding: EdgeInsets.all(8),
-                              message: mCuisine[index],
-                              child: ItemTags(
-                                title: mCuisine[index],
-                                activeColor: food_colorPrimary_light,
-                                color: food_colorPrimary,
-                                textColor: food_white,
-                                textActiveColor: food_textColorPrimary,
-                                padding: EdgeInsets.all(8),
-                                borderRadius: BorderRadius.all(Radius.circular(10)),
-                                highlightColor: food_colorAccent,
-                                index: index, // required
-                              ),
-                            );
-                          },
-                        ),
-                        SizedBox(
-                            height: 16
-                        ),
-                        Text(food_lbl_what_did_you_like, style: primaryTextStyle()),
-                        GridView.builder(
-                            scrollDirection: Axis.vertical,
-                            itemCount: mPeopleList.length,
-                            physics: NeverScrollableScrollPhysics(),
-                            shrinkWrap: true,
-                            itemBuilder: (context, index) {
-                              return GestureDetector(
-                                onTap: () {
-                                  setState(() {
-                                    mTime = index;
-                                  });
-                                },
-                                child: Container(
-                                  alignment: Alignment.center,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
-                                    color: mTime == index ? food_colorPrimary : food_view_color,
-                                  ),
-                                  padding: EdgeInsets.fromLTRB(8, 0, 8, 0),
-                                  child: Text(mPeopleList[index], style: primaryTextStyle(color: mTime == index ? food_white : food_textColorPrimary)).center(),
-                                ),
-                              );
-                            },
-                            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4, mainAxisSpacing: 16, crossAxisSpacing: 16, childAspectRatio: 2.0)),
-                        SizedBox(height: 16),
-                        Text(food_lbl_anything_else_you_want_to_add, style: primaryTextStyle()),
-                        foodEditTextStyle(food_hint_description),
-                        SizedBox(height: 16),
-                        Container(
-                          width: MediaQuery.of(context).size.width,
-                          padding: EdgeInsets.only(top: 10, bottom: 10),
-                          decoration: BoxDecoration(color: food_colorPrimary, borderRadius: BorderRadius.circular(50), boxShadow: defaultBoxShadow()),
-                          child: Text(food_lbl_submit, style: primaryTextStyle(color: white)).center(),
-                        )
-                      ],
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(24),
+                        topRight: Radius.circular(24)),
+                    color: food_white),
+                height: MediaQuery.of(context).size.height,
+                padding: EdgeInsets.all(16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(food_lbl_rate_your_Experience,
+                        style: primaryTextStyle()),
+                    Tags(
+                      itemCount: mCuisine.length,
+                      spacing: 16,
+                      alignment: WrapAlignment.start,
+                      itemBuilder: (int index) {
+                        return Tooltip(
+                          textStyle: TextStyle(fontSize: 16),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: food_colorPrimary),
+                          padding: EdgeInsets.all(8),
+                          message: mCuisine[index],
+                          child: ItemTags(
+                            title: mCuisine[index],
+                            activeColor: food_colorPrimary_light,
+                            color: food_colorPrimary,
+                            textColor: food_white,
+                            textActiveColor: food_textColorPrimary,
+                            padding: EdgeInsets.all(8),
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                            highlightColor: food_colorAccent,
+                            index: index, // required
+                          ),
+                        );
+                      },
                     ),
-                  )),
+                    SizedBox(height: 16),
+                    Text(food_lbl_what_did_you_like, style: primaryTextStyle()),
+                    GridView.builder(
+                        scrollDirection: Axis.vertical,
+                        itemCount: mPeopleList.length,
+                        physics: NeverScrollableScrollPhysics(),
+                        shrinkWrap: true,
+                        itemBuilder: (context, index) {
+                          return GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                mTime = index;
+                              });
+                            },
+                            child: Container(
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: mTime == index
+                                    ? food_colorPrimary
+                                    : food_view_color,
+                              ),
+                              padding: EdgeInsets.fromLTRB(8, 0, 8, 0),
+                              child: Text(mPeopleList[index],
+                                      style: primaryTextStyle(
+                                          color: mTime == index
+                                              ? food_white
+                                              : food_textColorPrimary))
+                                  .center(),
+                            ),
+                          );
+                        },
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 4,
+                            mainAxisSpacing: 16,
+                            crossAxisSpacing: 16,
+                            childAspectRatio: 2.0)),
+                    SizedBox(height: 16),
+                    Text(food_lbl_anything_else_you_want_to_add,
+                        style: primaryTextStyle()),
+                    foodEditTextStyle(food_hint_description),
+                    SizedBox(height: 16),
+                    Container(
+                      width: MediaQuery.of(context).size.width,
+                      padding: EdgeInsets.only(top: 10, bottom: 10),
+                      decoration: BoxDecoration(
+                          color: food_colorPrimary,
+                          borderRadius: BorderRadius.circular(50),
+                          boxShadow: defaultBoxShadow()),
+                      child: Text(food_lbl_submit,
+                              style: primaryTextStyle(color: white))
+                          .center(),
+                    )
+                  ],
+                ),
+              )),
             ),
           );
         },
@@ -230,11 +267,13 @@ class FoodRestaurantsDescriptionState extends State<FoodRestaurantsDescription> 
                       Row(
                         children: <Widget>[
                           IconButton(
-                            icon: Icon(Icons.favorite_border, color: food_textColorPrimary),
+                            icon: Icon(Icons.favorite_border,
+                                color: food_textColorPrimary),
                             onPressed: () {},
                           ),
                           IconButton(
-                            icon: Icon(Icons.search, color: food_textColorPrimary),
+                            icon: Icon(Icons.search,
+                                color: food_textColorPrimary),
                             onPressed: () {},
                           ),
                         ],
@@ -265,7 +304,9 @@ class FoodRestaurantsDescriptionState extends State<FoodRestaurantsDescription> 
                           width: width * 0.3,
                           alignment: Alignment.center,
                           padding: EdgeInsets.all(8),
-                          decoration: BoxDecoration(borderRadius: BorderRadius.circular(40), color: white),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(40),
+                              color: white),
                           child: mGallery(Icons.image, food_lbl_photo),
                         ),
                       )
@@ -283,15 +324,17 @@ class FoodRestaurantsDescriptionState extends State<FoodRestaurantsDescription> 
               children: <Widget>[
                 Container(
                   padding: EdgeInsets.all(16),
-                  decoration: BoxDecoration(boxShadow: defaultBoxShadow(), color: white),
+                  decoration: BoxDecoration(
+                      boxShadow: defaultBoxShadow(), color: white),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text(food_lbl_italian, style: primaryTextStyle(color: food_color_red)),
-
+                      Text(food_lbl_italian,
+                          style: primaryTextStyle(color: food_color_red)),
                       Row(
                         children: [
-                          Text(food_lbl_gravity_spacebar, style: primaryTextStyle(size: 20)),
+                          Text(food_lbl_gravity_spacebar,
+                              style: primaryTextStyle(size: 20)),
                           Padding(
                             padding: const EdgeInsets.all(5.0),
                             child: Icon(
@@ -306,15 +349,20 @@ class FoodRestaurantsDescriptionState extends State<FoodRestaurantsDescription> 
                       ),
                       Row(
                         children: <Widget>[
-                          Text(food_lbl_gurugram_sector_19, style: primaryTextStyle(color: food_textColorSecondary)),
-
+                          Text(food_lbl_gurugram_sector_19,
+                              style: primaryTextStyle(
+                                  color: food_textColorSecondary)),
                           Container(
-                            decoration: BoxDecoration(shape: BoxShape.circle, color: food_textColorSecondary),
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: food_textColorSecondary),
                             width: 4,
                             margin: EdgeInsets.only(right: 16, left: 4),
                             height: 4,
                           ),
-                          Text(food_lbl_3_4_km_away, style: primaryTextStyle(color: food_textColorSecondary)),
+                          Text(food_lbl_3_4_km_away,
+                              style: primaryTextStyle(
+                                  color: food_textColorSecondary)),
                         ],
                       ),
                       SizedBox(height: 12),
@@ -325,8 +373,8 @@ class FoodRestaurantsDescriptionState extends State<FoodRestaurantsDescription> 
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: <Widget>[
                           mOption(Icons.call, food_lbl_call),
-                         // mOption(Icons.star_border, food_lbl_reviews),
-                         // mOption(Icons.add_box, food_lbl_add_photo),
+                          // mOption(Icons.star_border, food_lbl_reviews),
+                          // mOption(Icons.add_box, food_lbl_add_photo),
                           mOption(Icons.directions, food_lbl_direction),
                         ],
                       ),
@@ -341,13 +389,17 @@ class FoodRestaurantsDescriptionState extends State<FoodRestaurantsDescription> 
                               },
                               child: Container(
                                 padding: EdgeInsets.only(top: 8, bottom: 8),
-                                decoration: BoxDecoration(color: food_colorPrimary, borderRadius: BorderRadius.circular(50)),
-                                child: Text(food_lbl_order_online, style: primaryTextStyle(color: white)).center(),
+                                decoration: BoxDecoration(
+                                    color: food_colorPrimary,
+                                    borderRadius: BorderRadius.circular(50)),
+                                child: Text(food_lbl_order_online,
+                                        style: primaryTextStyle(color: white))
+                                    .center(),
                               ),
                             ),
                           ),
                           SizedBox(width: 16),
-                         /* Expanded(
+                          /* Expanded(
                             flex: 1,
                             child: GestureDetector(
                               onTap: () {
@@ -367,29 +419,39 @@ class FoodRestaurantsDescriptionState extends State<FoodRestaurantsDescription> 
                 ),
                 Container(
                   margin: EdgeInsets.only(top: 16),
-                  decoration: BoxDecoration(boxShadow: defaultBoxShadow(), color: white),
+                  decoration: BoxDecoration(
+                      boxShadow: defaultBoxShadow(), color: white),
                   padding: EdgeInsets.all(16),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text(food_lbl_plan_your_visit.toUpperCase(), style: primaryTextStyle()),
+                      Text(food_lbl_plan_your_visit.toUpperCase(),
+                          style: primaryTextStyle()),
                       SizedBox(height: 8),
-                      iconWithTitle(Icons.hourglass_empty, food_lbl_peak_wait_up_to_30_min_from_4_00_to_10_00_pm).paddingOnly(top: 4,bottom: 4),
+                      iconWithTitle(Icons.hourglass_empty,
+                              food_lbl_peak_wait_up_to_30_min_from_4_00_to_10_00_pm)
+                          .paddingOnly(top: 4, bottom: 4),
                       Divider(height: 0.5, color: food_view_color),
-                      iconWithTitle(Icons.schedule, food_lbl_people_typically_spend_1_2_hours).paddingOnly(top: 4,bottom: 4),
+                      iconWithTitle(Icons.schedule,
+                              food_lbl_people_typically_spend_1_2_hours)
+                          .paddingOnly(top: 4, bottom: 4),
                       Divider(height: 0.5, color: food_view_color),
-                      iconWithTitle(Icons.schedule, food_lbl_you_visited_5_month_ago).paddingOnly(top: 4,bottom: 4),
+                      iconWithTitle(
+                              Icons.schedule, food_lbl_you_visited_5_month_ago)
+                          .paddingOnly(top: 4, bottom: 4),
                     ],
                   ),
                 ),
                 Container(
                   margin: EdgeInsets.only(top: 16, bottom: 16),
-                  decoration: BoxDecoration(boxShadow: defaultBoxShadow(), color: white),
+                  decoration: BoxDecoration(
+                      boxShadow: defaultBoxShadow(), color: white),
                   padding: EdgeInsets.all(16),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text(food_lbl_user_review.toUpperCase(), style: primaryTextStyle()),
+                      Text(food_lbl_user_review.toUpperCase(),
+                          style: primaryTextStyle()),
                       SizedBox(height: 16),
                       Row(
                         children: <Widget>[
@@ -399,7 +461,9 @@ class FoodRestaurantsDescriptionState extends State<FoodRestaurantsDescription> 
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
                               totalRatting(food_lbl_very_good),
-                              Text(food_lbl__1_700_reviews_on_google, style: primaryTextStyle(color: food_textColorSecondary)),
+                              Text(food_lbl__1_700_reviews_on_google,
+                                  style: primaryTextStyle(
+                                      color: food_textColorSecondary)),
                             ],
                           )
                         ],
@@ -418,13 +482,19 @@ class FoodRestaurantsDescriptionState extends State<FoodRestaurantsDescription> 
                         },
                         child: Container(
                           width: width,
-                          decoration: BoxDecoration(boxShadow: defaultBoxShadow(), color: food_colorPrimary,borderRadius: BorderRadius.circular(10)),
-                          child: Text(food_lbl_write_a_review, style: primaryTextStyle(color: white)).center(),
+                          decoration: BoxDecoration(
+                              boxShadow: defaultBoxShadow(),
+                              color: food_colorPrimary,
+                              borderRadius: BorderRadius.circular(10)),
+                          child: Text(food_lbl_write_a_review,
+                                  style: primaryTextStyle(color: white))
+                              .center(),
                           padding: EdgeInsets.all(12),
                         ),
                       ),
                       SizedBox(height: 16),
-                      Text(food_lbl_what_guest_are_saying.toUpperCase(), style: primaryTextStyle()),
+                      Text(food_lbl_what_guest_are_saying.toUpperCase(),
+                          style: primaryTextStyle()),
                       ListView.builder(
                         scrollDirection: Axis.vertical,
                         itemCount: mReviewList.length,
@@ -434,32 +504,41 @@ class FoodRestaurantsDescriptionState extends State<FoodRestaurantsDescription> 
                           return Review(mReviewList[index], index);
                         },
                       ),
-                      mViewAll(context, food_lbl_View_All_User_reviews, onTap: () {
+                      mViewAll(context, food_lbl_View_All_User_reviews,
+                          onTap: () {
                         FoodReview().launch(context);
                       }),
                     ],
                   ),
                 ),
                 Container(
-                  decoration: BoxDecoration(boxShadow: defaultBoxShadow(), color: white),
+                  decoration: BoxDecoration(
+                      boxShadow: defaultBoxShadow(), color: white),
                   padding: EdgeInsets.all(16),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       SizedBox(height: 16),
-                      Text(food_lbl_additional_detail.toUpperCase(), style: primaryTextStyle()),
+                      Text(food_lbl_additional_detail.toUpperCase(),
+                          style: primaryTextStyle()),
                       SizedBox(height: 16),
-                      iconWithTitle(Icons.call, food_user_contact).paddingOnly(top: 4,bottom: 4),
+                      iconWithTitle(Icons.call, food_user_contact)
+                          .paddingOnly(top: 4, bottom: 4),
                       Divider(height: 0.5, color: food_view_color),
-                      iconWithTitle(Icons.location_on, food_lbl_peak_wait_up_to_30_min_from_4_00_to_10_00_pm).paddingOnly(top: 4,bottom: 4),
+                      iconWithTitle(Icons.location_on,
+                              food_lbl_peak_wait_up_to_30_min_from_4_00_to_10_00_pm)
+                          .paddingOnly(top: 4, bottom: 4),
                       Divider(height: 0.5, color: food_view_color),
-                      iconWithTitle(Icons.schedule, food_lbl_open_hours).paddingOnly(top: 4,bottom: 4),
+                      iconWithTitle(Icons.schedule, food_lbl_open_hours)
+                          .paddingOnly(top: 4, bottom: 4),
                       Divider(height: 0.5, color: food_view_color),
-                      iconWithTitle(Icons.person_outline, food_lbl__100_for_two_people_approx).paddingOnly(top: 4,bottom: 4),
-
-            SizedBox(height: 16),
+                      iconWithTitle(Icons.person_outline,
+                              food_lbl__100_for_two_people_approx)
+                          .paddingOnly(top: 4, bottom: 4),
+                      SizedBox(height: 16),
                       Container(
-                        decoration: BoxDecoration(color: food_color_light_orange),
+                        decoration:
+                            BoxDecoration(color: food_color_light_orange),
                         padding: EdgeInsets.all(8),
                         child: Row(
                           children: <Widget>[
@@ -469,15 +548,20 @@ class FoodRestaurantsDescriptionState extends State<FoodRestaurantsDescription> 
                                   WidgetSpan(
                                     child: Padding(
                                       padding: EdgeInsets.only(right: 8),
-                                      child: Icon(Icons.shopping_basket, color: food_color_Orange, size: 18),
+                                      child: Icon(Icons.shopping_basket,
+                                          color: food_color_Orange, size: 18),
                                     ),
                                   ),
-                                  TextSpan(text: food_lbl_15_off, style: primaryTextStyle(size: 16, color: food_color_Orange)),
+                                  TextSpan(
+                                      text: food_lbl_15_off,
+                                      style: primaryTextStyle(
+                                          size: 16, color: food_color_Orange)),
                                 ],
                               ),
                             ),
                             SizedBox(width: 8),
-                            Text(food_lbl_on_total_bill_till_may_2020, style: primaryTextStyle())
+                            Text(food_lbl_on_total_bill_till_may_2020,
+                                style: primaryTextStyle())
                           ],
                         ),
                       )
@@ -529,7 +613,9 @@ class Review extends StatelessWidget {
         children: <Widget>[
           Container(
             margin: EdgeInsets.only(top: 8),
-            child: CircleAvatar(radius: 20, backgroundImage: CachedNetworkImageProvider(model.image)),
+            child: CircleAvatar(
+                radius: 20,
+                backgroundImage: CachedNetworkImageProvider(model.image)),
           ),
           SizedBox(
             width: 10,
@@ -541,7 +627,9 @@ class Review extends StatelessWidget {
               Row(
                 children: <Widget>[
                   mRating(model.rate),
-                  Text(model.duration, style: primaryTextStyle(color: food_textColorSecondary, size: 16)),
+                  Text(model.duration,
+                      style: primaryTextStyle(
+                          color: food_textColorSecondary, size: 16)),
                 ],
               )
             ],

@@ -1,22 +1,10 @@
-// Copyright 2020 Google LLC
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//      http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
 
 import 'package:app_food/food/utils/FoodColors.dart';
 import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
 
 import '../model/filter.dart';
+//bar de  filtre
 
 const _boldStyle = TextStyle(fontWeight: FontWeight.bold);
 
@@ -30,9 +18,10 @@ class FilterBar extends StatelessWidget {
 
   List<InlineSpan> _buildCategorySpans(Filter filter) {
     final noneSelected =
-        filter == null || filter.isDefault || filter.ville== null;
+        filter == null || filter.isDefault || filter.ville == null;
     return [
-      if (noneSelected) TextSpan(text: 'Tout les restaurants ', style: _boldStyle),
+      if (noneSelected)
+        TextSpan(text: 'Tout les restaurants ', style: _boldStyle),
       if (!noneSelected) ...[
         TextSpan(text: '${filter.ville}', style: _boldStyle),
         TextSpan(text: ' name'),
@@ -52,7 +41,7 @@ class FilterBar extends StatelessWidget {
 
   List<InlineSpan> _buildPriceSpans(Filter filter) {
     return [
-      if (filter.ville!= null) ...[
+      if (filter.ville != null) ...[
         TextSpan(text: ' of '),
         TextSpan(text: filter.ville, style: _boldStyle),
       ],
@@ -87,46 +76,45 @@ class FilterBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
-  /*  IconButton(
+    /*  IconButton(
       icon: Icon(Icons.search, color: Colors.white),
       onPressed: () {},
     );*/
     return TextButton(
         onPressed: _onPressed,
-      child: Container(
-      decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), color: food_white),
-      padding: EdgeInsets.all(6),
-        child: Row(
-        children: [
-          Icon(Icons.filter_list,color: Colors.green),
-          Expanded(
-            child: Padding(
-              padding: EdgeInsets.fromLTRB(6, 0, 6, 0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  RichText(
-                    overflow: TextOverflow.ellipsis,
-                    text: TextSpan(
-                      style: Theme.of(context).textTheme.bodyText2,
-                     children: _buildTitleSpans(_filter),
-                    ),
+        child: Container(
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10), color: food_white),
+          padding: EdgeInsets.all(6),
+          child: Row(
+            children: [
+              Icon(Icons.filter_list, color: Colors.green),
+              Expanded(
+                child: Padding(
+                  padding: EdgeInsets.fromLTRB(6, 0, 6, 0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      RichText(
+                        overflow: TextOverflow.ellipsis,
+                        text: TextSpan(
+                          style: Theme.of(context).textTheme.bodyText2,
+                          children: _buildTitleSpans(_filter),
+                        ),
+                      ),
+                      RichText(
+                        overflow: TextOverflow.ellipsis,
+                        text: TextSpan(
+                          style: Theme.of(context).textTheme.caption,
+                          children: _buildSubtitleSpans(_filter),
+                        ),
+                      ),
+                    ],
                   ),
-                  RichText(
-                    overflow: TextOverflow.ellipsis,
-                    text: TextSpan(
-                      style: Theme.of(context).textTheme.caption,
-                      children: _buildSubtitleSpans(_filter),
-                    ),
-                  ),
-                ],
+                ),
               ),
-            ),
+            ],
           ),
-        ],
-      ),
-      )
-    );
+        ));
   }
 }
