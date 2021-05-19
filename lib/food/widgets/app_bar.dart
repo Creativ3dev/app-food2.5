@@ -13,15 +13,9 @@
 // limitations under the License.
 
 import 'package:app_food/food/model/resto.dart';
-import 'package:app_food/food/screen/FoodDescription.dart';
-import 'package:app_food/food/utils/FoodColors.dart';
-import 'package:app_food/food/utils/FoodString.dart';
-import 'package:app_food/food/utils/FoodWidget.dart';
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/material.dart';
-import 'package:nb_utils/nb_utils.dart';
 
-import 'stars.dart';
+import 'package:flutter/material.dart';
+
 
 //app bar details resto (image +close)
 class RestoAppBar extends StatelessWidget {
@@ -67,7 +61,9 @@ class RestoAppBar extends StatelessWidget {
                 Container(
                   width: 80,
                   alignment: Alignment.bottomLeft,
-                  /* child: StarRating(
+                  /*
+
+                   child: StarRating(
                       rating: resto.rating,
                       color: Colors.white,
                       size: 16,

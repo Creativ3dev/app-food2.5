@@ -1,5 +1,4 @@
 import 'package:app_food/food/screen/FoodDashboard.dart';
-import 'package:app_food/food/screen/FoodViewRestaurants.dart';
 import 'package:app_food/food/screen/home_page.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:clippy_flutter/arc.dart';
@@ -12,8 +11,6 @@ import 'package:app_food/food/utils/FoodColors.dart';
 import 'package:app_food/food/utils/FoodImages.dart';
 import 'package:app_food/food/utils/FoodString.dart';
 import 'package:app_food/main/utils/AppWidget.dart';
-import 'package:app_food/food/services/loginservice.dart';
-import 'package:provider/provider.dart';
 import 'package:app_food/food/services/auth_service.dart';
 
 import 'FoodCreateAccount.dart';

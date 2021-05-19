@@ -1,8 +1,6 @@
 import 'dart:ffi';
 
 import 'package:app_food/food/model/values.dart';
-import 'package:app_food/food/model/values.dart';
-import 'package:charts_flutter/flutter.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 typedef RestoPressedCallback = void Function(String restoId);
@@ -28,6 +26,7 @@ class Resto {
   final String siteweb;
   final String siteadmin;
   final String horaire;
+ final double rating;
 
   final DocumentReference reference;
 
@@ -36,6 +35,7 @@ class Resto {
       this.formatted_address,
       this.user_ratings_totals,
       /*this .compound_code,*/
+        this.rating,
       this.place_id,
       this.photo,
       this.type,
@@ -49,7 +49,8 @@ class Resto {
       this.verifie,
       this.numero})
       : id = null,
-  reference = null;
+
+        reference = null;
 
   Resto.fromSnapshot(DocumentSnapshot snapshot)
       : assert(snapshot != null),
@@ -57,6 +58,7 @@ class Resto {
         name = snapshot.data()['name'],
         formatted_address = snapshot.data()['formatted_address'],
         user_ratings_totals = snapshot.data()['user_ratings_totals'],
+       rating = snapshot.data()['rating'].toDouble(),
         /* compound_code = snapshot.data()['compound_code'],*/
         photo = snapshot.data()['photo'],
         place_id = snapshot.data()['place_id'],

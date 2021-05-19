@@ -1,20 +1,12 @@
 
 import 'dart:async';
-
-import 'package:app_food/food/model/resto.dart';
-import 'package:app_food/food/screen/FoodReview.dart';
-import 'package:app_food/food/screen/FoodSignIn.dart';
 import 'package:app_food/main/store/AppStore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
-import 'food/screen/FoodDashboard.dart';
 import 'food/screen/FoodViewRestaurants.dart';
 import 'food/screen/FoodWalkThrough.dart';
-import 'food/screen/authentification.dart';
-import 'food/widgets/Widget_tree.dart';
 import 'main/utils/AppTheme.dart';
 
 AppStore appStore =AppStore();

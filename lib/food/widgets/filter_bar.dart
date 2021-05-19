@@ -1,7 +1,6 @@
 
 import 'package:app_food/food/utils/FoodColors.dart';
 import 'package:flutter/material.dart';
-import 'package:nb_utils/nb_utils.dart';
 
 import '../model/filter.dart';
 //bar de  filtre

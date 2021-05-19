@@ -1,19 +1,9 @@
 import 'package:app_food/food/screen/FoodSignIn.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-import 'package:nb_utils/nb_utils.dart';
-import 'package:app_food/food/model/FoodModel.dart';
 import 'package:app_food/food/utils/FoodColors.dart';
-import 'package:app_food/food/utils/FoodDataGenerator.dart';
-import 'package:app_food/food/utils/FoodString.dart';
-import 'package:app_food/food/utils/FoodWidget.dart';
 import 'package:app_food/main/utils/AppWidget.dart';
-import 'package:provider/provider.dart';
-import 'FoodDashboard.dart';
 
 // page creation de  compte
 class FoodCreateAccount extends StatefulWidget {

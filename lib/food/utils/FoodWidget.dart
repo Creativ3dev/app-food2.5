@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:app_food/food/screen/FoodAddAddress.dart';
 import 'package:app_food/main.dart';
-import 'package:app_food/main/utils/AppWidget.dart';
-
 import 'FoodColors.dart';
 import 'FoodString.dart';
 

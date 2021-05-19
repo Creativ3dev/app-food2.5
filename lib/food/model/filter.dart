@@ -1,11 +1,13 @@
-typedef FilterChangedCallback<T> = void Function(T newValue);
+import 'dart:ffi';
 
+typedef FilterChangedCallback<T> = void Function(T newValue);
+//model pour le tri des restos
 class Filter {
   final String ville;
   final String type;
  /* final String compound_code;*/
   final String name;
-  final String rating;
+  final Double rating;
   final String coumpound;
 
 

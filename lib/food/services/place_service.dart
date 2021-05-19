@@ -1,10 +1,6 @@
-import 'dart:convert';
 import 'dart:io';
-import 'dart:math';
-import 'package:app_food/food/widgets/card.dart';
 import 'package:dio/dio.dart';
 import 'package:http/http.dart';
-import 'package:responsive_grid/responsive_grid.dart';
 
 // For storing our result
 class Place {

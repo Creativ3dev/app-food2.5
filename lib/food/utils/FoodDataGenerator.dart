@@ -1,7 +1,7 @@
 import 'package:app_food/food/model/FoodModel.dart';
 
 import 'FoodImages.dart';
-
+//generateur de donnee statique(template)
 List<DashboardCollections> addCollectionData() {
   List<DashboardCollections> collectionData = List<DashboardCollections>();
   collectionData.add(DashboardCollections("Gym Lover", food_ic_item4, "Starts from @E123"));

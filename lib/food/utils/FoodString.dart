@@ -1,3 +1,4 @@
+//donnes statiques du template
 const food_app_name = "Listo Resto";
 const food_lbl_introducing_instagold = "Introducing instagold.";
 const food_lbl_view_restaurants = "Vues Restaurants";

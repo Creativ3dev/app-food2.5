@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:math';
-import 'package:anim_search_bar/anim_search_bar.dart';
 import 'package:app_food/food/model/filter.dart';
 import 'package:app_food/food/model/resto.dart';
 import 'package:app_food/food/services/address_search.dart';
@@ -15,7 +14,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:app_food/food/model/data.dart'as data;
 import 'package:flutter/material.dart';
-import 'package:nb_utils/nb_utils.dart';
 import 'package:uuid/uuid.dart';
 import '../../main.dart';
 import 'FoodDashboard.dart';

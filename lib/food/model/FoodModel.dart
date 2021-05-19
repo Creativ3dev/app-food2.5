@@ -1,3 +1,4 @@
+//model pour les donees statiques de lapplication(données du template)
 class Restaurants {
   var name;
   var image;

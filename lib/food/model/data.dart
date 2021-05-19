@@ -1,6 +1,5 @@
 
 import 'package:app_food/food/model/resto.dart';
-import 'package:app_food/food/model/values.dart';
 import 'package:app_food/food/model/filter.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
