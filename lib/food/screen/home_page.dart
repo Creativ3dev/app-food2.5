@@ -23,8 +23,8 @@ import 'FoodViewRestaurants.dart';
 import 'package:app_food/food/services/place_service.dart';
 import 'package:app_food/food/services/address_search.dart';
 
-//lsite des restos
-
+//liste des restos
+/*
 class HomePage extends StatefulWidget {
   static const route = '/';
   HomePage({Key key}) : super(key: key);
@@ -221,3 +221,4 @@ class _HomePageState extends State<HomePage> {
 
   }
 }
+*/

@@ -15,7 +15,7 @@ import 'package:sliver_fab/sliver_fab.dart';
 import 'FoodDescription.dart';
 import 'FoodRestaurantsDescription.dart';
 
-class RestoPage extends StatefulWidget {
+/*class RestoPage extends StatefulWidget {
   static String tag = '/FoodViewRestaurants';
   static const route = '/resto';
 
@@ -65,7 +65,7 @@ class _RestoPageState extends State<RestoPage> {
     FirebaseAuth.instance
         .signInAnonymously()
         .then((UserCredential userCredential) {
-      data.getresto(restoId).then((Resto resto) {
+     /* data.getresto(restoId).then((Resto resto)*/ {
         _currentReviewSubscription?.cancel();
         setState(() {
           if (userCredential.user.displayName == null ||
@@ -74,7 +74,7 @@ class _RestoPageState extends State<RestoPage> {
           } else {
             _userName = userCredential.user.displayName;
           }
-          _resto = resto;
+       /*   _resto = resto;*/
           _userId = userCredential.user.uid;
 
           // Initialize the reviews snapshot...
@@ -394,3 +394,4 @@ class RestoPageArguments {
 
   RestoPageArguments({@required this.restoId});
 }
+*/

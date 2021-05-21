@@ -1,4 +1,5 @@
-import 'package:app_food/food/model/resto.dart';
+
+/*import 'package:app_food/food/model/resto.dart';
 import 'package:app_food/food/utils/FoodColors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
@@ -101,3 +102,4 @@ class RestoCard extends StatelessWidget {
     );
   }
 }
+*/

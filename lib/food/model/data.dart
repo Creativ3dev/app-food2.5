@@ -1,48 +1,32 @@
 
+import 'package:app_food/food/Constants/Constants.dart';
 import 'package:app_food/food/model/resto.dart';
 import 'package:app_food/food/model/filter.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-
-Future<void> addresto(Resto resto) {
-  final restos = FirebaseFirestore.instance.collection('resto');
-  return restos.add({
-    /*'rating': resto.rating,*/
-   'type': resto.type,
-    'formatted_address': resto.formatted_address,
-    'name': resto.name,
-    'user_ratings_totals': resto.user_ratings_totals,
-   /* 'photo_reference': resto.photo,*/
-    /*'compound_code': resto.compound_code,*/
-    'place_id': resto.place_id,
-    'ville' : resto.ville
+class data {
 
 
 
-  });
-}
 
-Stream<QuerySnapshot> loadAllrestos() {
-  return FirebaseFirestore.instance
-      .collection('resto')
-      .orderBy('type', descending: true)
-      .limit(800)
-      .snapshots();
-}
+  static void updateRestoData(restos resto) {
+    restosRef.doc(resto.id).update({
+      'name': resto.name,
+      'type': resto.type,
+      'ville': resto.ville,
+      'photo': resto.photo,
+    });
+  }
 
-List<Resto> getrestosFromQuery(QuerySnapshot snapshot) {
-  return snapshot.docs.map((DocumentSnapshot doc) {
-    return Resto.fromSnapshot(doc);
-  }).toList();
-}
+ static Future<QuerySnapshot> searchName(String name) async {
+    Future<QuerySnapshot> restos = restosRef
+        .where('name', isGreaterThanOrEqualTo: name)
+        .where('name', isLessThan: name + 'z')
+        .get();
 
-Future<Resto> getresto(String restosId) {
-  return FirebaseFirestore.instance
-      .collection('resto')
-      .doc(restosId)
-      .get()
-      .then((DocumentSnapshot doc) => Resto.fromSnapshot(doc));
-}
+    return restos;
+  }
+
 /*
 Future<void> addReview({String restoId, Review review}) {
   final resto =
@@ -74,22 +58,6 @@ Future<void> addReview({String restoId, Review review}) {
   });
 }*/
 
-Stream<QuerySnapshot> loadFilteredrestos(Filter filter) {
-  Query collection = FirebaseFirestore.instance.collection('resto');
-  if (filter.ville != null) {
-    collection = collection.where('ville', isEqualTo: filter.ville);
-  }
- if (filter.type != null) {
-    collection = collection.where('type', isEqualTo: filter.type);
-  }
-  if (filter.coumpound!= null) {
-    collection = collection.where('coumpound', isEqualTo: filter.coumpound);
-  }
-  return collection
-      .orderBy(filter.rating ?? 'rating', descending: true)
-      .limit(800)
-      .snapshots();
-}
 
 /*
 void addrestosBatch(List<resto> restos) {
@@ -97,3 +65,4 @@ void addrestosBatch(List<resto> restos) {
     addresto(resto);
   });
 }*/
+}

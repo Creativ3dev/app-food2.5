@@ -14,8 +14,9 @@
 
 import 'package:app_food/food/screen/FoodDashboard.dart';
 import 'package:app_food/food/screen/FoodViewRestaurants.dart';
+import 'package:app_food/food/screen/SearchScreen.dart';
 import 'package:flutter/material.dart';
-
+/*
 //app bar liste resto
 class MyApp extends StatelessWidget {
   @override
@@ -24,10 +25,10 @@ class MyApp extends StatelessWidget {
       title: 'listo resto',
       onGenerateRoute: (settings) {
         switch (settings.name) {
-          case RestoPage.route:
+          case SearchScreen.route:
             final RestoPageArguments arguments = settings.arguments;
             return MaterialPageRoute(
-                builder: (context) => RestoPage(
+                builder: (context) => SearchScreen(
                       restoId: arguments.restoId,
                     ));
             break;
@@ -43,3 +44,4 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+*/

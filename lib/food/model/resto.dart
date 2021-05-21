@@ -2,40 +2,36 @@ import 'dart:ffi';
 
 import 'package:app_food/food/model/values.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/cupertino.dart';
 
-typedef RestoPressedCallback = void Function(String restoId);
+class restos {
+  String id;
+  String name;
+  String formatted_address;
+  String user_ratings_totals;
+  /*  String compound_code;*/
+/*  List<dynamic> photo;*/
+  String place_id;
+  String photo;
+  String type;
+  String ville;
+  String lat;
+  String lng;
+  bool verifie;
+  String numero;
+  String menu;
+  String siteweb;
+  String siteadmin;
+  String horaire;
+  double rating;
 
-typedef CloserestoPressedCallback = void Function();
-
-class Resto {
-  final String id;
-  final String name;
-  final String formatted_address;
-  final String user_ratings_totals;
-  /* final String compound_code;*/
-/*final  List<dynamic> photo;*/
-  final String place_id;
-  final String photo;
-  final String type;
-  final String ville;
-  final String lat;
-  final String lng;
-  final bool verifie;
-  final String numero;
-  final String menu;
-  final String siteweb;
-  final String siteadmin;
-  final String horaire;
- final double rating;
-
-  final DocumentReference reference;
-
-  Resto._(
-      {this.name,
+  restos(
+      {this.id,
+      this.name,
       this.formatted_address,
       this.user_ratings_totals,
       /*this .compound_code,*/
-        this.rating,
+      this.rating,
       this.place_id,
       this.photo,
       this.type,
@@ -47,40 +43,29 @@ class Resto {
       this.siteadmin,
       this.siteweb,
       this.verifie,
-      this.numero})
-      : id = null,
+      this.numero});
 
-        reference = null;
 
-  Resto.fromSnapshot(DocumentSnapshot snapshot)
-      : assert(snapshot != null),
-        id = snapshot.id,
-        name = snapshot.data()['name'],
-        formatted_address = snapshot.data()['formatted_address'],
-        user_ratings_totals = snapshot.data()['user_ratings_totals'],
-       rating = snapshot.data()['rating'].toDouble(),
-        /* compound_code = snapshot.data()['compound_code'],*/
-        photo = snapshot.data()['photo'],
-        place_id = snapshot.data()['place_id'],
-        type = snapshot.data()['type'],
-        ville = snapshot.data()['ville'],
-        lat = snapshot.data()['lat'],
-        lng = snapshot.data()['lng'],
-        verifie = snapshot.data()['verifie'],
-        numero = snapshot.data()['numero'],
-        menu = snapshot.data()['menu'],
-        siteweb = snapshot.data()['siteweb'],
-        siteadmin = snapshot.data()['siteadmin'],
-        horaire = snapshot.data()['horaire'],
-        reference = snapshot.reference;
-
-  factory Resto.random() {
-    return Resto._(
-      /*ville:getRandomCoumpound(),*/
-      type: getRandomType(),
-      formatted_address: getRandomAddress(),
-      name: getRandomName(),
-      /* photo: getRandomPhoto(),*/
+  factory restos.fromDoc(DocumentSnapshot doc) {
+    return restos(
+      id :doc.id,
+      name :doc['name'],
+      formatted_address :doc['formatted_address'],
+      user_ratings_totals : doc['user_ratings_totals'],
+      rating : doc['rating'].toDouble(),
+      /* compound_code = doc['compound_code'],*/
+      place_id : doc['place_id'],
+      photo : doc['photo'],
+      type : doc['type'],
+      ville :doc['ville'],
+      lat : doc['lat'],
+      lng : doc['lng'],
+      verifie : doc['verifie'],
+      numero : doc['numero'],
+      menu : doc['menu'],
+      siteweb : doc['siteweb'],
+      siteadmin : doc['siteadmin'],
+      horaire : doc['horaire'],
     );
   }
 }

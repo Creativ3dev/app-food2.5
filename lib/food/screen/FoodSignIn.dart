@@ -1,4 +1,5 @@
 import 'package:app_food/food/screen/FoodDashboard.dart';
+import 'package:app_food/food/screen/SearchScreen.dart';
 import 'package:app_food/food/screen/home_page.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:clippy_flutter/arc.dart';
@@ -43,7 +44,7 @@ class FoodSignInState extends State<FoodSignIn> {
     Widget mOption(var color, var icon, var value, var iconColor, valueColor) {
       return InkWell(
         onTap: () {
-          HomePage().launch(context);
+          SearchScreen().launch(context);
         },
         child: Container(
           width: width,
@@ -306,7 +307,7 @@ class FoodSignInState extends State<FoodSignIn> {
                                   Navigator.of(context).pushReplacement(
                                       MaterialPageRoute(
                                           builder: (context) =>
-                                              HomePage()));
+                                              SearchScreen()));
 
                                   },
                                 style: ButtonStyle(

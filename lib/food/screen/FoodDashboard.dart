@@ -1,3 +1,4 @@
+import 'package:app_food/food/screen/SearchScreen.dart';
 import 'package:app_food/food/screen/home_page.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
@@ -27,7 +28,7 @@ class FoodDashboard extends StatefulWidget {
 
 class FoodDashboardState extends State<FoodDashboard> {
   GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
-// donnee statique
+// donnees statiques
   List<DashboardCollections> mCollectionList;
 
   List<Restaurants> mBakeryList;
@@ -55,7 +56,7 @@ class FoodDashboardState extends State<FoodDashboard> {
       var width = MediaQuery.of(context).size.width;
       return GestureDetector(
         onTap: () {
-          RestoPage().launch(context);
+          SearchScreen().launch(context);
         },
         child: Container(
           /* decoration: gradientBoxDecoration(showShadow: true, gradientColor1: gradientColor1, gradientColor2: gradientColor2),
@@ -130,7 +131,7 @@ class FoodDashboardState extends State<FoodDashboard> {
                                 onPressed: () {
                                   Navigator.of(context).pushReplacement(
                                       MaterialPageRoute(
-                                          builder: (context) => HomePage()));
+                                          builder: (context) => SearchScreen()));
                                 },
                                 style: ButtonStyle(
                                   backgroundColor:
@@ -393,7 +394,7 @@ class FoodSideMenuState extends State<FoodSideMenu> {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => HomePage()),
+                            MaterialPageRoute(builder: (context) => SearchScreen()),
                           );
                         },
                         child: Text("resto"),

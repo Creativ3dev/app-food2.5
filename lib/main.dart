@@ -1,5 +1,6 @@
 
 import 'dart:async';
+import 'package:app_food/food/screen/SearchScreen.dart';
 import 'package:app_food/main/store/AppStore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -18,33 +19,23 @@ Future<void> main() async {
 
 class MyApp  extends StatelessWidget {
   @override
+  Widget getScreenId() {
+    return StreamBuilder(
+        stream: FirebaseAuth.instance.authStateChanges(),
+        builder: (BuildContext context, snapshot) {
+          if (snapshot.hasData) {
+            return SearchScreen(currentUserId: snapshot.data.uid);
+          } else {
+            return SearchScreen();
+          }
+        });
+  }
+  @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        StreamProvider.value(value: FirebaseAuth.instance.authStateChanges()),
-      ],
-      child: MaterialApp(
-      title: 'listo resto',
-      theme: !appStore.isDarkModeOn ? AppThemeData.lightTheme : AppThemeData.darkTheme,
-      onGenerateRoute: (settings) {
-        switch (settings.name) {
-          case RestoPage.route:
-            final RestoPageArguments arguments = settings.arguments;
-            return MaterialPageRoute(
-                builder: (context) => RestoPage(
-                  restoId: arguments.restoId,
-                ));
-            break;
-          default:
-          // return MaterialPageRoute(
-          //     builder: (context) => RestaurantPage(
-          //           restaurantId: 'lV81npEeboEActMpUJjn',
-          //         ));
-          // Everything defaults to home, but maybe we want a custom 404 here
-            return MaterialPageRoute(builder: (context) => SplashScreen());
-        }
-      },
-    )
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData.light(),
+      home: SearchScreen(),
     );
   }
 }
